@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <>
       <nav className='navbar navbar-expand-lg navbar-dark navbar-header'>
-        <div className='container'>
+        <div style={{ display: 'contents' }}>
           <a className='navbar-brand d-flex' href='/'>
             <img src={LogoMakanat} alt="LogoMakanat" className="img-header" />
           </a>

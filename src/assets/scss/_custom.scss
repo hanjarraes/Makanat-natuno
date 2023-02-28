@@ -289,7 +289,7 @@ body {
       text-align: start;
       width: 282px;
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 35px;
       img {
         width: 30px;
       }
@@ -364,22 +364,106 @@ body {
   }
 }
 
-@media (max-width: 1400px) {
+.content-become {
+  background-color: #f8f9fa;
+  padding: 48px 0;
+  .bg-become {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2a4dff;
+    border-radius: 5px;
+    padding: 48px;
+    color: #ffffff;
+    .become-title {
+      font-weight: bold;
+      font-size: 40px;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+    .become-desc {
+      font-size: 24px;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+    a {
+      margin-top: 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 0.01em;
+      background: #ffffff;
+      padding: 5px;
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      }
+    }
+  }
+}
 
+footer {
+  background: #000000;
+  border-top: 4px solid #2a4dff;
+  padding: 80px;
+  .footer-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+  .footer-items {
+    margin: 4px 0;
+    a {
+      font-size: 14px;
+      color: #ffffff;
+    }
+  }
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .footer-icon {
+      a {
+        margin: 0 5px;
+      }
+    }
+    .tect-checkout {
+      font-size: 14px;
+      color: #ffffff !important;
+      margin-top: 15px;
+      text-align: end;
+    }
+    .footer-vector {
+      img {
+        margin: 0 5px;
+      }
+    }
+    .icon-makanat {
+      margin-top: 15px;
+    }
+    .copy-right {
+      margin-top: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #ffffff;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
 }
 
 @media (max-width: 1024px) {
-
 }
 
 @media (max-width: 500px) {
-
 }
 
 @media (max-width: 412px) {
-
 }
 
 @media (max-width: 360px) {
-
 }

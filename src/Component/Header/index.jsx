@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Whatsapp, HambergerMenu, ArrowDown2 } from 'iconsax-react'
 import Modal from 'react-modal'
 import LogoMakanat from '../../assets/img/Icon/makanat_logo.svg'
+import World from "../../assets/img/Icon/world.svg"
 
 const customStyles = {
   overlay: {
@@ -57,6 +58,17 @@ const Header = () => {
                 <li className='nav-item active mx-2'>
                   <a className='nav-link' href='https://makanat.com/login'>
                     Login
+                  </a>
+                </li>
+                <li className='nav-item active mx-2'>
+                  <img src={World} alt="LogoMakanat" className="img-header" />
+                </li>
+                <li className='nav-item active mx-2'>
+                  <div className='vertical-line'/>
+                </li>
+                <li className='nav-item active mx-2'>
+                  <a className='nav-link' href='/'>
+                    SAR
                   </a>
                 </li>
               </ul>

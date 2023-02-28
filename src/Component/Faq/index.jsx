@@ -8,7 +8,7 @@ const Faq = () => {
     <div className="faq-content">
       <div className="container">
         <div className="faq-title"> Frequently Asked <span>Questions</span></div>
-        <div className='card-faq' onClick={() => setActive('paid')}>
+        <div className='card-faq' onClick={() => setActive('paid')} data-aos="fade-right" data-aos-duration="1000" >
           <div className='d-flex justify-content-between' style={{ cursor: 'pointer' }}>
             <div className={`${active === 'paid' ? 'faq-active ' : ''} title-content-faq`}>
               How do I get paid?
@@ -19,7 +19,7 @@ const Faq = () => {
             Through wire-transfer to your bank account. Makanat process payouts 3 days after guest check-out.
           </div>
         </div>
-        <div className='card-faq' onClick={() => setActive('MA')}>
+        <div className='card-faq' onClick={() => setActive('MA')} data-aos="fade-left" data-aos-duration="1000" >
           <div className='d-flex justify-content-between' style={{ cursor: 'pointer' }}>
             <div className={`${active === 'MA' ? 'faq-active ' : ''} title-content-faq`}>
               What is Makanat agreement (MA)?
@@ -30,7 +30,7 @@ const Faq = () => {
             An auto generated contract between space owner and event organizer sent to both parties upon host approval of request. MA includes, booking details, host rules, space cancellation policy and Makanat policy of use.
           </div>
         </div>
-        <div className='card-faq' onClick={() => setActive('host')}>
+        <div className='card-faq' onClick={() => setActive('host')} data-aos="fade-right" data-aos-duration="1000" >
           <div className='d-flex justify-content-between' style={{ cursor: 'pointer' }}>
             <div className={`${active === 'host' ? 'faq-active ' : ''} title-content-faq`}>
               Who can host?
@@ -48,7 +48,7 @@ const Faq = () => {
             <div>Video/audio production studios, and whatever space that can be used for cinematography.</div>
           </div>
         </div>
-        <div className='card-faq' onClick={() => setActive('insurance')}>
+        <div className='card-faq' onClick={() => setActive('insurance')} data-aos="fade-left" data-aos-duration="1000" >
           <div className='d-flex justify-content-between' style={{ cursor: 'pointer' }}>
             <div className={`${active === 'insurance' ? 'faq-active ' : ''} title-content-faq`}>
               Does Makanat provide insurance?

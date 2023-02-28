@@ -15,6 +15,10 @@ const Landing = () => {
       <Hosting />
       <List />
       <Faq />
+      <div className="container content-become">
+        <div>Become a Makanat Host!</div>
+        <div>Use your space's downtime  and start earning!</div>
+      </div>
     </div>
   );
 };

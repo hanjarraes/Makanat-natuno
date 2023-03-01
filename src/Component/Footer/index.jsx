@@ -19,7 +19,7 @@ const Footer = () => {
       <div className="row">
         <div className="col-12 col-md-8">
           <div className="row">
-            <div className="col-6 col-md-3">
+            <div className="col-6 col-md-3 item-footer">
               <div className="footer-title">MAKANAT</div>
               <div className="footer-items">
                 <a target="_blank" href="https://makanat.com/about" rel="noreferrer">About us</a>
@@ -31,7 +31,7 @@ const Footer = () => {
                 <a target="_blank" href="https://makanat.com/contact-us" rel="noreferrer">Contact Us</a>
               </div>
             </ div>
-            <div className="col-6 col-md-3">
+            <div className="col-6 col-md-3 item-footer">
               <div className="footer-title">EXPLORE</div>
               <div className="footer-items">
                 <a href="https://makanat.com/activities" rel="noreferrer">Activities</a>
@@ -43,7 +43,7 @@ const Footer = () => {
                 <a target="_blank" href="https://blog.makanat.com/ar" rel="noreferrer">Blog</a>
               </div>
             </ div>
-            <div className="col-6 col-md-3">
+            <div className="col-6 col-md-3 item-footer">
               <div className="footer-title">LEGAL</div>
               <div className="footer-items">
                 <a href="https://makanat.com/terms" rel="noreferrer">Terms of use</a>
@@ -55,10 +55,10 @@ const Footer = () => {
                 <a target="_blank" href="/" rel="noreferrer">License Agreement</a>
               </div>
             </ div>
-            <div className="col-6 col-md-3">
+            <div className="col-6 col-md-3 item-footer">
               <div className="footer-title">HOSTING</div>
               <div className="footer-items">
-                <a target="_blank" href="https://makanat.com/about" rel="noreferrer">List your space</a>
+                <a style={{ color: "#FFF62A" }} href="#ListYourSpace" rel="noreferrer">List your space</a>
               </div>
               <div className="footer-items">
                 <a target="_blank" href="https://help.makanat.com/ar/articles/6522504-%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D9%85%D8%B6%D9%8A%D9%81-%D8%A5%D9%84%D9%89-%D9%85%D9%83%D8%A7%D9%86%D8%A7%D8%AA" rel="noreferrer">Hosting guide</a>

@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
-import { Whatsapp, HambergerMenu, ArrowDown2 } from 'iconsax-react'
+import { Whatsapp, HambergerMenu, ArrowDown2, ArrowUp2 } from 'iconsax-react'
 import Modal from 'react-modal'
+import Close from '../../assets/img/Icon/close.svg'
 import LogoMakanat from '../../assets/img/Icon/makanat_logo.svg'
 import World from "../../assets/img/Icon/world.svg"
 
@@ -21,6 +22,7 @@ const customStyles = {
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState(false)
   return (
     <>
       <nav className='navbar navbar-expand-lg navbar-dark navbar-header'>
@@ -32,7 +34,7 @@ const Header = () => {
             className='d-flex d-md-none'
             onClick={() => setOpenModal(!openModal)}
           >
-            <HambergerMenu />
+            <HambergerMenu className='burger-nav' />
           </div>
           <div className='collapse navbar-collapse'>
             <ul className='navbar-nav mr-auto'>
@@ -41,9 +43,16 @@ const Header = () => {
             <div>
               <ul className='navbar-nav nav-header-custom mr-auto d-flex align-items-center'>
                 <li className="nav-item dropdown">
-                  <div>
-                    Activities <ArrowDown2 />
+                  <div onClick={() => setOpenDropdown(!openDropdown)}>
+                    Activities {openDropdown ?  <ArrowUp2 /> : <ArrowDown2 /> } 
                   </div>
+                  {openDropdown ? (
+                    <div className='dropdown-item-nav'>
+                      <a href='https://makanat.com/activities/3'>Marketing</a>
+                      <a href='https://makanat.com/activities/12' >Event</a>
+                      <a href='https://makanat.com/activities/4'>Productions</a>
+                    </div>
+                  ) : ''}
                 </li>
                 <li className='nav-item active mx-2'>
                   <a className='nav-link' href='/'>
@@ -64,7 +73,7 @@ const Header = () => {
                   <img src={World} alt="LogoMakanat" className="img-header" />
                 </li>
                 <li className='nav-item active mx-2'>
-                  <div className='vertical-line'/>
+                  <div className='vertical-line' />
                 </li>
                 <li className='nav-item active mx-2'>
                   <a className='nav-link' href='/'>
@@ -79,26 +88,36 @@ const Header = () => {
           isOpen={openModal}
           style={customStyles}
           className='modalNavCustomHero'
-          contentLabel='Example Modal'
+          contentLabel='Nav Modal'
         >
           <div>
             <div className='modalNavHeaderHero'>
-              <img src={LogoMakanat} alt='Logo Header Pertamina' />
-              <span onClick={() => setOpenModal(!openModal)}>X</span>
+              <img src={LogoMakanat} alt='Logo Header' />
+              <img src={Close} onClick={() => setOpenModal(!openModal)} alt="close" />
             </div>
-            <div
-              className='d-flex flex-column justify-content-between'
-              style={{ height: window.innerHeight - 100 }}
-            >
+            <div className='content-nav-modal' >
+              <div className='title-nav-mobile'>Activities</div>
               <div className='items-modal'>
-                <a href='/' onClick={() => setOpenModal(!openModal)}>
-                  List your space
+                <a href='https://makanat.com/activities/3' >
+                  Meeting
                 </a>
-                <a hClick={() => setOpenModal(!openModal)} >
+                <a href='https://makanat.com/activities/12' >
+                  Event
+                </a>
+                <a href='https://makanat.com/activities/4'>
+                  Productions
+                </a>
+              </div>
+              <div className='line-nav-hori' />
+              <div className='items-modal'>
+                <a href='https://makanat.com/SignUp' className='small' >
                   Sign up
                 </a>
-                <a hClick={() => setOpenModal(!openModal)} >
+                <a href='https://makanat.com/login' className='small' >
                   Login
+                </a>
+                <a href='/' className='small btn-list' onClick={() => setOpenModal(!openModal)}>
+                  List your space
                 </a>
               </div>
               <div>

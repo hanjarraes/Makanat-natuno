@@ -6,7 +6,7 @@ const Faq = () => {
   const [active, setActive] = useState('paid')
   return (
     <div className="faq-content">
-      <div className="container">
+      <div className="container container-faq">
         <div className="faq-title"> Frequently Asked <span>Questions</span></div>
         <div className='card-faq' onClick={() => setActive('paid')} data-aos="fade-right" data-aos-duration="1000" >
           <div className='d-flex justify-content-between' style={{ cursor: 'pointer' }}>

@@ -36,7 +36,7 @@ const Header = () => {
           >
             <HambergerMenu className='burger-nav' />
           </div>
-          <div className='collapse navbar-collapse'>
+          <div className='collapse navbar-collapse '>
             <ul className='navbar-nav mr-auto'>
               <li className='nav-item' />
             </ul>
@@ -44,7 +44,7 @@ const Header = () => {
               <ul className='navbar-nav nav-header-custom mr-auto d-flex align-items-center'>
                 <li className="nav-item dropdown">
                   <div onClick={() => setOpenDropdown(!openDropdown)}>
-                    Activities {openDropdown ?  <ArrowUp2 /> : <ArrowDown2 /> } 
+                    Activities {openDropdown ? <ArrowUp2 /> : <ArrowDown2 />}
                   </div>
                   {openDropdown ? (
                     <div className='dropdown-item-nav'>

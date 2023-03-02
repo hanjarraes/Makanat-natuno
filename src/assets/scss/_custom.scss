@@ -385,16 +385,20 @@ body {
     font-size: 24px;
   }
 
+  .list-img {
+    width: 100%;
+  }
+
   .list-content-item {
     display: flex;
-    width: 1168px;
+    width: 100%;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 20px;
 
     .list-item {
       text-align: start;
-      width: 282px;
+      width: 223px;
       font-weight: bold;
       margin-top: 35px;
 

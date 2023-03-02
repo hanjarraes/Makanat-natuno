@@ -79,8 +79,8 @@ const List = () => {
           src={ListImg}
           alt="List-Img"
           className="list-img"
-          data-aos="fade-right"
-          data-aos-duration="1000"
+          data-aos="fade-up"
+          data-aos-duration="3000"
         />
         <div className="list-content-item">
           {textData.listItem.map(function (item) {

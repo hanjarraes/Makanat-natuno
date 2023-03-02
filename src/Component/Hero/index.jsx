@@ -17,14 +17,14 @@ const Hero = () => {
         <div className="hero-search d-none d-md-flex">
           <img src={Location} alt="Phone-Hosting" />
           <input type="text" placeholder={textData.placeholder} />
-          <button>{textData.button}</button>
+          <button className="btn">{textData.button}</button>
         </div>
         <div className="hero-search-mobile d-block d-md-none">
           <div className="hero-search">
             <img src={Location} alt="Phone-Hosting" />
             <input type="text" placeholder={textData.placeholder} />
           </div>
-          <button>{textData.button}</button>
+          <button className="btn">{textData.button}</button>
         </div>
       </div>
     </div>

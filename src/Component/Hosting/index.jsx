@@ -40,7 +40,7 @@ const Hosting = () => {
         <div className="content-card-hosting">
           {textData.listCard.map(function (item) {
             return (
-              <div className="card-hosting" data-aos="fade-up" key={item.id}>
+              <div className="card-hosting" data-aos="fade-up" data-aos-duration="3000" key={item.id}>
                 <img src={item.img} alt="Phone-Hosting" />
                 <div className="hosting-card-title">{item.title}</div>
                 <div className="hosting-card-desc">{item.desc}</div>

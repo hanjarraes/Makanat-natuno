@@ -46,9 +46,9 @@ const Header = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark navbar-header">
-        <div style={{ display: "contents" }}>
-          <a className="navbar-brand d-flex" href="/">
+      <nav className='navbar navbar-expand-lg navbar-dark navbar-header px-lg-5 py-0'>
+        <div className='container-fluid'>
+          <a className='navbar-brand d-flex' href='/'>
             <img src={LogoMakanat} alt="LogoMakanat" className="img-header" />
           </a>
           <div
@@ -82,18 +82,18 @@ const Header = () => {
                     ""
                   )}
                 </li>
-                <li className="nav-item active mx-2">
-                  <a className="nav-link" href="/">
-                    <div className="btn-light-space">{textData.title}</div>
+                <li className='nav-item active mx-2'>
+                  <a className='nav-link' href='/'>
+                    <div className='btn-light-space'> List your space</div>
                   </a>
                 </li>
                 <li className="nav-item active mx-2">
-                  <a className="nav-link" href="https://makanat.com/SignUp">
+                  <a className="nav-link" style={{ fontWeight: 'bold' }} href="https://makanat.com/SignUp">
                     {textData.textSignUp}
                   </a>
                 </li>
                 <li className="nav-item active mx-2">
-                  <a className="nav-link" href="https://makanat.com/login">
+                  <a className="nav-link" style={{ fontWeight: 'bold' }} href="https://makanat.com/login">
                     {textData.textLogin}
                   </a>
                 </li>
@@ -101,10 +101,8 @@ const Header = () => {
                   <img src={World} alt="LogoMakanat" className="img-header" />
                 </li>
                 <li className="nav-item active mx-2">
-                  <div className="vertical-line" />
-                </li>
-                <li className="nav-item active mx-2">
-                  <a className="nav-link" href="/">
+                  <a className="nav-link d-flex align-items-center" href="/">
+                    <div className="vertical-line" />
                     SAR
                   </a>
                 </li>
@@ -146,12 +144,21 @@ const Header = () => {
                 <a href="https://makanat.com/login" className="small">
                   {textData.textLogin}
                 </a>
+                <a href='/' className='small btn btn-list' onClick={() => setOpenModal(!openModal)}>
+                  List your space
+                </a>
+              </div>
+              <div>
                 <a
-                  href="/"
-                  className="small btn-list"
-                  onClick={() => setOpenModal(!openModal)}
+                  target='_blank'
+                  href='https://api.whatsapp.com/send/?phone=6281511500645&text&type=phone_number&app_absent=0'
+                  className='btn-whatsApp'
+                  rel='noreferrer'
                 >
-                  {textData.button}
+                  <Whatsapp /> <div className='title'>Hubungi Kami</div>
+                </a>
+                <a target="_blank" href='https://online.pgn.co.id/register/residensial' className='btn-default mt-3' rel='noreferrer'>
+                  <div className='title'>Daftar Sekarang</div>
                 </a>
               </div>
             </div>

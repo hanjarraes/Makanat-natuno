@@ -9,10 +9,12 @@ const Become = () => {
 
   return (
     <div className="content-become">
-      <div className="container bg-become">
-        <div className="become-title">{textData.title}</div>
-        <div className="become-desc">{textData.desc}</div>
-        <a href="https://makanat.com/login">{textData.button}</a>
+      <div className="custom-container">
+        <div className="container bg-become">
+          <div className="become-title">{textData.title}</div>
+          <div className="become-desc">{textData.desc}</div>
+          <a href="https://makanat.com/login">{textData.button}</a>
+        </div>
       </div>
     </div>
   );

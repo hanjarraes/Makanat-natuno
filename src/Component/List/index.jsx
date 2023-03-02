@@ -68,7 +68,7 @@ const textData = {
 const List = () => {
   return (
     <div className="list-content">
-      <div className="container container-mobile-list">
+      <div className="custom-container container-mobile-list">
         <div className="list-title-small" data-aos="fade-up">
           {textData.title}
         </div>
@@ -80,12 +80,12 @@ const List = () => {
           alt="List-Img"
           className="list-img"
           data-aos="fade-up"
-          data-aos-duration="3000"
+          data-aos-duration="300"
         />
         <div className="list-content-item">
           {textData.listItem.map(function (item) {
             return (
-              <div className="list-item" data-aos="fade-up" key={item.id}>
+              <div className="list-item" data-aos="fade-up" data-aos-duration="300" key={item.id}>
                 <img src={item.icon} className="icon-list" alt="List-item" />
                 <div className="list-card-title">{item.title}</div>
                 <div className="list-card-desc">{item.desc}</div>

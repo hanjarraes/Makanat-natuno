@@ -9,7 +9,7 @@ const Motto = () => {
 
   return (
     <div>
-      <div className="motto-content" data-aos="fade-up">
+      <div className="motto-content" data-aos="fade-up" data-aos-duration="300">
         <div className="motto-title">
           <span>{textData.titleBold}</span> {textData.title}
         </div>

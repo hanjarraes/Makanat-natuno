@@ -525,13 +525,14 @@ body {
       font-weight: bolder;
       text-align: center;
       letter-spacing: 0.01em;
+      border: 1px solid #ffffff;
       background: #ffffff;
       padding: 13px 20px;
 
       &:hover {
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        background: #2a4dff;
       }
     }
   }
@@ -596,6 +597,42 @@ footer {
   }
 }
 
+.nav-result {
+  background-color: #ffffff;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  .hidden-map {
+    .switch-map {
+      display: flex;
+      color: #3d4152;
+      letter-spacing: 0.01em;
+      font-size: 20px;
+      justify-content: flex-end;
+      align-items: center;
+      span {
+        margin-right: 5px;
+      }
+    }
+  }
+  .btn-attendees {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d0d0d3;
+    border-radius: 5px;
+    padding: 0 8px;
+    margin-right: 10px;
+    cursor: pointer;
+    span {
+      margin-left: 5px;
+    }
+  }
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+}
+
 @media (max-width: 1400px) {
 }
 
@@ -649,7 +686,11 @@ footer {
 
   .modalNavCustomHero {
     padding: 28px;
-    background: #2a4dff !important;
+    background-image: linear-gradient(
+      to bottom right,
+      #000000,
+      #222222
+    ) !important;
 
     .modalNavHeaderHero {
       display: flex;

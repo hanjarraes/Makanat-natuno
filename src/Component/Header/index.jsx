@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import { Whatsapp, HambergerMenu, ArrowDown2, ArrowUp2 } from "iconsax-react";
+import { HambergerMenu, ArrowDown2, ArrowUp2 } from "iconsax-react";
 import Modal from "react-modal";
 import Close from "../../assets/img/Icon/close.svg";
 import LogoMakanat from "../../assets/img/Icon/makanat_logo.svg";
@@ -146,19 +146,6 @@ const Header = () => {
                 </a>
                 <a href='/' className='small btn btn-list' onClick={() => setOpenModal(!openModal)}>
                   List your space
-                </a>
-              </div>
-              <div>
-                <a
-                  target='_blank'
-                  href='https://api.whatsapp.com/send/?phone=6281511500645&text&type=phone_number&app_absent=0'
-                  className='btn-whatsApp'
-                  rel='noreferrer'
-                >
-                  <Whatsapp /> <div className='title'>Hubungi Kami</div>
-                </a>
-                <a target="_blank" href='https://online.pgn.co.id/register/residensial' className='btn-default mt-3' rel='noreferrer'>
-                  <div className='title'>Daftar Sekarang</div>
                 </a>
               </div>
             </div>

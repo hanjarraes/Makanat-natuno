@@ -87,7 +87,6 @@ select.form-control {
   width: 100%;
 }
 
-
 //
 // Labels
 //
@@ -116,7 +115,6 @@ select.form-control {
   line-height: $input-line-height-sm;
 }
 
-
 // Readonly controls as plain text
 //
 // Apply class to a readonly input to make it appear like regular plain
@@ -140,7 +138,6 @@ select.form-control {
     padding-left: 0;
   }
 }
-
 
 // Form control sizing
 //
@@ -191,7 +188,6 @@ textarea.form-control {
   margin-top: $form-text-margin-top;
 }
 
-
 // Form grid
 //
 // Special replacement for our grid system's `.row` for tighter form layouts.
@@ -199,16 +195,15 @@ textarea.form-control {
 .form-row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -$form-grid-gutter-width * .5;
-  margin-left: -$form-grid-gutter-width * .5;
+  margin-right: -$form-grid-gutter-width * 0.5;
+  margin-left: -$form-grid-gutter-width * 0.5;
 
   > .col,
   > [class*="col-"] {
-    padding-right: $form-grid-gutter-width * .5;
-    padding-left: $form-grid-gutter-width * .5;
+    padding-right: $form-grid-gutter-width * 0.5;
+    padding-left: $form-grid-gutter-width * 0.5;
   }
 }
-
 
 // Checkboxes and radios
 //
@@ -251,7 +246,6 @@ textarea.form-control {
   }
 }
 
-
 // Form validation
 //
 // Provide feedback to users when form field values are valid or invalid. Works
@@ -260,7 +254,11 @@ textarea.form-control {
 // server side validation.
 
 @each $state, $data in $form-validation-states {
-  @include form-validation-state($state, map-get($data, color), map-get($data, icon));
+  @include form-validation-state(
+    $state,
+    map-get($data, color),
+    map-get($data, icon)
+  );
 }
 
 // Inline forms
@@ -342,6 +340,65 @@ textarea.form-control {
     }
     .custom-control-label {
       margin-bottom: 0;
+    }
+  }
+}
+
+.css-b62m3t-container {
+  width: 193px;
+  .css-1u9des2-indicatorSeparator {
+    display: none;
+  }
+}
+
+.input-Address {
+  min-width: 309px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 5px 5px;
+  input {
+    min-width: 309px;
+    width: 100%;
+    border: none;
+    outline: none;
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+  .clear-address {
+    width: 20px;
+    margin: 6px;
+    cursor: pointer;
+  }
+}
+
+reach-portal {
+  div {
+    width: max-content !important;
+    background: #fff;
+    border-radius: 15px;
+    margin-top: 18px;
+    ul {
+      width: max-content !important;
+      cursor: pointer;
+      li {
+        padding: 10px 15px !important;
+        border-bottom: 1px solid #3d4152;
+        &:last-child {
+          border-bottom-right-radius: 13px;
+          border-bottom-left-radius: 13px;
+        }
+        &:first-child {
+          border-top-right-radius: 13px;
+          border-top-left-radius: 13px;
+        }
+        &:hover {
+          background-color: #3d4152 !important;
+          color: #fff !important;
+        }
+      }
     }
   }
 }

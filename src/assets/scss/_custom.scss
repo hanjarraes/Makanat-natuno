@@ -19,6 +19,14 @@ body {
   }
 }
 
+.btn-primary {
+  background-color: #2a4dff;
+  &:disabled {
+    background-color: #d0d0d3;
+    border-color: #d0d0d3;
+  }
+}
+
 .custom-container {
   max-width: 1060px;
   margin: 0 auto;
@@ -252,17 +260,21 @@ body {
       background: #ffffff;
       padding-left: 10px;
 
-      input {
+      .input-Address {
         border: none;
         outline: none;
-        padding-left: 10px;
-        font-size: 16px;
-        line-height: 24px;
-        width: 100%;
-
-        &:focus {
+        input {
           border: none;
           outline: none;
+          padding-left: 10px;
+          font-size: 16px;
+          line-height: 24px;
+          width: 100%;
+
+          &:focus {
+            border: none;
+            outline: none;
+          }
         }
       }
 
@@ -620,10 +632,64 @@ footer {
     border: 1px solid #d0d0d3;
     border-radius: 5px;
     padding: 0 8px;
-    margin-right: 10px;
     cursor: pointer;
+    height: 100%;
     span {
       margin-left: 5px;
+    }
+  }
+  .active-attendees {
+    color: #fff;
+    background-color: #2a4dff;
+  }
+
+  .option-attendees {
+    top: 61px;
+    position: absolute;
+    background: #fff;
+    width: 265px;
+    border-radius: 5px;
+    border: 1px solid #d0d0d3;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+    .options {
+      padding: 20px 0px;
+      cursor: pointer;
+      .option {
+        padding: 0px 20px;
+        width: inherit;
+        display: flex;
+        input[type="radio"] {
+          margin-right: 10px;
+          width: 24px;
+          height: 24px;
+        }
+        input[type="radio"]:checked:after {
+          margin-right: 10px;
+          width: 24px;
+          height: 24px;
+          border-radius: 15px;
+          position: relative;
+          background-color: #fff;
+          content: "";
+          display: inline-block;
+          visibility: visible;
+          border: 6px solid #2a4dff;
+        }
+        label {
+          color: #3d4152;
+          font-size: 16px;
+          letter-spacing: 0.01em;
+        }
+      }
+    }
+    .btn-clear {
+      color: #3d4152;
+      text-align: center;
+      text-decoration-line: underline;
+      font-size: 14px;
+      font-weight: bolder;
+      cursor: pointer;
     }
   }
 }
@@ -775,17 +841,21 @@ footer {
           background: #ffffff;
           padding-left: 10px;
 
-          input {
+          .input-Address {
             border: none;
             outline: none;
-            padding-left: 10px;
-            font-size: 16px;
-            line-height: 24px;
-            width: 100%;
-
-            &:focus {
+            input {
               border: none;
               outline: none;
+              padding-left: 10px;
+              font-size: 16px;
+              line-height: 24px;
+              width: 100%;
+
+              &:focus {
+                border: none;
+                outline: none;
+              }
             }
           }
 

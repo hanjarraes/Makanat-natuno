@@ -4,9 +4,9 @@ import Header from "../../Component/Header";
 import MapAddress from "../../widget/MapAddress";
 import SelectItem from "../../widget/SelectItem";
 import Switch from "../../widget/Switch";
-import Attendees from "../../assets/img/Icon/attendees.svg";
 import Filter from "../../assets/img/Icon/filter.svg";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import Options from "../../widget/Options";
 
 const Result = () => {
   const { isLoaded } = useLoadScript({
@@ -15,7 +15,14 @@ const Result = () => {
   });
   const optionProductions = [
     { value: '1', label: 'Production' },
-    { value: '2', label: 'Event' },
+    { value: '2', label: 'Meeting' },
+    { value: '3', label: 'Event' },
+  ]
+  const optionAttendees = [
+    { value: '1', label: '2 to 10' },
+    { value: '2', label: '11 to 25' },
+    { value: '3', label: '26 to 50' },
+    { value: '4', label: 'Over 100' },
   ]
   const [production, setProduction] = useState([]);
   const [isSwitch, setIsSwitch] = useState(true);
@@ -59,18 +66,16 @@ const Result = () => {
                 onChangeDropdown={(e) => setProduction(e)}
               />
               <MapAddress
-                name="Address"
-                placeholder="Address"
+                name="Where"
+                placeholder="Where"
                 parentDivClassName='pr-2'
                 selectedValue={addressVal}
                 setSelected={setAddressVal}
               />
-              <div className="btn-attendees">
-                <img src={Attendees} alt="img-attendees" />
-                <span>
-                  Attendees
-                </span>
-              </div>
+              <Options
+                options={optionAttendees}
+                parentDivClassName='pr-2'
+              />
               <div className="btn-attendees">
                 <img src={Filter} alt="img-filter" />
               </div>
@@ -85,7 +90,6 @@ const Result = () => {
           <div className="row">
             <div className={`${isSwitch ? 'col-md-6 ' : 'col-md-12 '} d-flex`}>
               <div style={{ height: height }}>
-                kontol
               </div>
             </div>
             {isSwitch ?

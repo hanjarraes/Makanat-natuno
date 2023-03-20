@@ -57,7 +57,7 @@ const MapAddress = ({
             placeholder={placeholder}
           />
           <ComboboxPopover>
-            <ComboboxList className='' >
+            <ComboboxList>
               {status === "OK" &&
                 data.map(({ place_id, description }) => (
                   <ComboboxOption key={place_id} value={description} />

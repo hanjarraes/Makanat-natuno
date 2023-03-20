@@ -28,14 +28,14 @@ const Result = () => {
 
 
   const [dimension, setDimension] = useState({
-    height: window.innerHeight - 260,
+    height: window.innerHeight - 286,
     width: window.innerWidth,
   });
   const { height } = dimension;
 
   useEffect(() => {
     const dimension = setDimension({
-      height: window.innerHeight - 280,
+      height: window.innerHeight - 286,
     });
     window.addEventListener('resize', dimension);
     return () => {
@@ -44,7 +44,7 @@ const Result = () => {
   }, []);
 
   //pagination
-  const showData = 2;
+  const showData = 12;
   const totalItems = ContentCard.length;
   const totalPages = Math.ceil(totalItems / showData);
 

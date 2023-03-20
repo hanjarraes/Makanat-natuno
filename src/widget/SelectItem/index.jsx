@@ -44,9 +44,6 @@ const SelectItem = ({
   useEffect(() => {
     if (isValue.length >= minChar) {
       if (onInputChange) onInputChange(isValue);
-      if (document.getElementById('orderLines')) {
-        document.getElementById('orderLines').scrollLeft -= 200;
-      }
       setIsOpen(true);
     } else {
       setIsOpen(false);

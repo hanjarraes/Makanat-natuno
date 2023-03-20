@@ -349,6 +349,9 @@ textarea.form-control {
   .css-1u9des2-indicatorSeparator {
     display: none;
   }
+  .css-bp4de4-menu {
+    z-index: 20;
+  }
 }
 
 .input-Address {
@@ -380,6 +383,7 @@ reach-portal {
     background: #fff;
     border-radius: 15px;
     margin-top: 18px;
+    z-index: 20;
     ul {
       width: max-content !important;
       cursor: pointer;

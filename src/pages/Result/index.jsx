@@ -3,12 +3,15 @@ import Header from "../../Component/Header";
 import MapAddress from "../../widget/MapAddress";
 import SelectItem from "../../widget/SelectItem";
 import Switch from "../../widget/Switch";
+import Attendees from "../../assets/img/Icon/attendees.svg";
+import DatepickerIcon from "../../assets/img/Icon/datepicker.svg";
 import Filter from "../../assets/img/Icon/filter.svg";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import Options from "../../widget/Options";
 import CardContent from "../../widget/CardContent";
 import { optionProductions, optionAttendees, ContentCard, colourOptions, showItems, showPagination } from "./service"
 import SelectMulti from "../../widget/SelectMulti";
+import Datepick from "../../widget/Datepick";
 
 
 const Result = () => {
@@ -84,6 +87,7 @@ const Result = () => {
                 options={optionAttendees}
                 parentDivClassName='pr-2'
               />
+              <Datepick />
               <div className="btn-attendees">
                 <img src={Filter} alt="img-filter" />
               </div>

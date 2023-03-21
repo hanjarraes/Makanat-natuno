@@ -692,6 +692,20 @@ footer {
       cursor: pointer;
     }
   }
+  
+  .btn-datepick {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d0d0d3;
+    border-radius: 5px;
+    padding: 12px 8px;
+    margin-right: 10px;
+    cursor: pointer;
+    span {
+      margin-left: 5px;
+    }
+  }
+
 }
 
 .map-container {

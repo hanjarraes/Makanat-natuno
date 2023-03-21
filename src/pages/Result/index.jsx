@@ -14,6 +14,8 @@ import Datepick from "../../widget/Datepick";
 import LogoFilter from "../../assets/img/Icon/filter2.svg";
 import LogoList from "../../assets/img/Icon/list.svg";
 import LogoMap from "../../assets/img/Icon/map.svg";
+import ModalSelect from "../../widget/Mobile/ModalSelect";
+import ModalAddress from "../../widget/Mobile/ModalAddress";
 
 const Result = () => {
   const { isLoaded } = useLoadScript({
@@ -38,6 +40,8 @@ const Result = () => {
   });
   const { height } = dimension;
 
+
+
   useEffect(() => {
     if (window.matchMedia('screen and (max-width: 762px)').matches) {
       setIsSwitchM(false);
@@ -49,7 +53,6 @@ const Result = () => {
         window.removeEventListener('resize', dimension);
       };
     } else {
-      setIsSwitchM(true);
       const dimension = setDimension({
         height: window.innerHeight - 276,
       });
@@ -78,25 +81,10 @@ const Result = () => {
         <>
           <div className="row py-md-3 nav-result">
             <div className="col-6 py-3 d-md-none d-block">
-              <SelectItem
-                name="Plan"
-                options={optionProductions}
-                showLabelOnly
-                parentDivClassName=''
-                placeholder="Plan"
-                selectedValue={production}
-                minChar={0}
-                onChangeDropdown={(e) => setProduction(e)}
-              />
+              <ModalSelect optionData={optionProductions} />
             </div>
             <div className="col-6 py-3 pl-0 d-md-none d-block">
-              <MapAddress
-                name="Where"
-                placeholder="Where"
-                parentDivClassName=''
-                selectedValue={addressVal}
-                setSelected={setAddressVal}
-              />
+              <ModalAddress />
             </div>
             <div className="col-md-10 d-none d-md-flex col-12 d-flex">
               <SelectItem

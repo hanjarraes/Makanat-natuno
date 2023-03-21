@@ -2,10 +2,9 @@ import React, { forwardRef, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { format } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
-// import "./style.css";
 import DatepickerIcon from "../../assets/img/Icon/datepicker.svg";
 
-export default function Datepick({ tag }) {
+export default function Datepick() {
   const [startDate, setStartDate] = useState("");
   const [selectedStartTime, setSelectedStartTime] = useState("");
   const [selectedEndTime, setSelectedEndTime] = useState("");
@@ -32,14 +31,12 @@ export default function Datepick({ tag }) {
   }, [select]);
 
   let dayLength, monthLength;
-  // format(startDate, 'EEEE').length
-  // let monthLength = format(startDate, 'EEEE').length
   if (startDate) {
     dayLength = format(startDate, "EEEE").length;
     monthLength = format(startDate, "MMMM").length;
   }
 
-  const ExampleCustomTimeInput = ({ date, value, onChange }) => (
+  const ExampleCustomTimeInput = () => (
     <>
       <div
         className="row"
@@ -59,8 +56,7 @@ export default function Datepick({ tag }) {
           {startDate &&
             format(
               startDate,
-              `${dayLength <= 6 ? "EEEE" : "EE"}, dd ${
-                monthLength <= 6 ? "MMMM" : "MMM"
+              `${dayLength <= 6 ? "EEEE" : "EE"}, dd ${monthLength <= 6 ? "MMMM" : "MMM"
               } yyyy`
             )}
         </p>
@@ -87,9 +83,9 @@ export default function Datepick({ tag }) {
           ))}
         </select>
       </div>
-      <div className="test" style={{ minWidth: '252px'}}>
+      <div className="test" style={{ minWidth: '252px' }}>
         <div className="p-0 footer-datepick"></div>
-        <div class="row" style={{ paddingTop: "16px", paddingBottom: "16px" }}>
+        <div class="row" style={{ paddingTop: "10px", paddingBottom: "10px" }}>
           <div
             class="col-6 "
             style={{
@@ -112,7 +108,8 @@ export default function Datepick({ tag }) {
           <div class="col-6 pr-4 d-flex justify-content-end">
             <button
               type="submit"
-              class={`btn btn-primary ${startDate ? "" : "disabled"}`}
+              disabled={!startDate}
+              class={`btn btn-primary`}
               onClick={() => {
                 if (startDate) setSelect(false);
               }}
@@ -125,13 +122,13 @@ export default function Datepick({ tag }) {
     </>
   );
 
-  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
+  const ExampleCustomInput = forwardRef(({ onClick }, ref) => (
     <>
       <div
         className={`btn-datepick ${startDate ? "btn-primary" : ""}`}
         onClick={() => {
           onClick();
-          setSelect(true);
+          setSelect(!select);
         }}
         ref={ref}
       >
@@ -149,8 +146,6 @@ export default function Datepick({ tag }) {
       </div>
     </>
   ));
-  // console.log(format(startDate, 'EEEE').length);
-  // console.log(format(startDate, 'MMMM').length);
   return (
     <DatePicker
       selected={startDate}

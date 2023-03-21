@@ -3,13 +3,20 @@ import Header from "../../Component/Header";
 import MapAddress from "../../widget/MapAddress";
 import SelectItem from "../../widget/SelectItem";
 import Switch from "../../widget/Switch";
-import Filter from "../../assets/img/Icon/filter.svg";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import Options from "../../widget/Options";
 import CardContent from "../../widget/CardContent";
-import { optionProductions, optionAttendees, ContentCard, colourOptions, showItems, showPagination } from "./service"
+import {
+  optionProductions,
+  optionAttendees,
+  ContentCard,
+  colourOptions,
+  showItems,
+  showPagination,
+} from "./service";
 import SelectMulti from "../../widget/SelectMulti";
 import Datepick from "../../widget/Datepick";
+import Filter from "../../widget/Filter";
 
 import LogoFilter from "../../assets/img/Icon/filter2.svg";
 import LogoList from "../../assets/img/Icon/list.svg";
@@ -32,7 +39,6 @@ const Result = () => {
   const [dataContent, setDataContent] = useState([]);
   const [dataPage, setDataPage] = useState([]);
   const [selectPage, setSelectPage] = useState(1);
-
 
   const [dimension, setDimension] = useState({
     height: window.innerHeight - 276,
@@ -68,7 +74,6 @@ const Result = () => {
   const totalItems = ContentCard.length;
   const totalPages = Math.ceil(totalItems / showData);
 
-
   useEffect(() => {
     showItems({ selectPage, showData, setDataContent });
     showPagination({ selectPage, totalPages, setDataPage });
@@ -77,7 +82,7 @@ const Result = () => {
   return (
     <div>
       <Header />
-      {isLoaded ?
+      {isLoaded ? 
         <>
           <div className="row py-md-3 nav-result">
             <div className="col-6 py-3 d-md-none d-block">
@@ -91,7 +96,7 @@ const Result = () => {
                 name="Plan"
                 options={optionProductions}
                 showLabelOnly
-                parentDivClassName='pr-2'
+                parentDivClassName="pr-2"
                 placeholder="Plan"
                 selectedValue={production}
                 minChar={0}
@@ -100,23 +105,21 @@ const Result = () => {
               <MapAddress
                 name="Where"
                 placeholder="Where"
-                parentDivClassName='pr-2'
+                parentDivClassName="pr-2"
                 selectedValue={addressVal}
                 setSelected={setAddressVal}
               />
-              <Options
-                options={optionAttendees}
-                parentDivClassName='pr-2'
-              />
               <Datepick />
-              <div className="btn-attendees">
-                <img src={Filter} alt="img-filter" />
-              </div>
+              <Options options={optionAttendees} parentDivClassName="pr-2" />
+              <Filter />
             </div>
             <div className="col-2 d-none d-md-flex  d-flex justify-content-end hidden-map">
               <div className="switch-map">
                 <span>Map</span>
-                <Switch checked={isSwitch} onClick={() => setIsSwitch(!isSwitch)} />
+                <Switch
+                  checked={isSwitch}
+                  onClick={() => setIsSwitch(!isSwitch)}
+                />
               </div>
             </div>
           </div>
@@ -126,7 +129,6 @@ const Result = () => {
                 <GoogleMap
                   zoom={16}
                   center={addressVal ? addressVal : center}
-
                   mapContainerClassName="map-container"
                 >
                   {addressVal && <Marker position={addressVal} />}

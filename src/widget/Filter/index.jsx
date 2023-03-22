@@ -1,13 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import {
-  Button,
-  ButtonGroup,
-  Dropdown,
-  DropdownButton,
   Overlay,
   Popover,
 } from "react-bootstrap";
 import FilterIcon from "../../assets/img/Icon/filter.svg";
+import FilterIcon2 from "../../assets/img/Icon/filter2.svg";
 import CloseIcon from "../../assets/img/Icon/close.svg";
 import Slider, { SliderTooltip } from "rc-slider";
 
@@ -37,14 +34,8 @@ const handle = (props) => {
   );
 };
 
-const marks = {
-  0: "$0",
-  5000: "$5M",
-};
-
 const handleStyle = { backgroundColor: "#09ACF8", borderColor: "#09ACF8" };
 const trackStyle = { backgroundColor: "#09ACF8" };
-const wrapperStyle = { minWidth: '310px'};
 
 export default function Filter() {
   const [show, setShow] = useState(false);
@@ -58,7 +49,6 @@ export default function Filter() {
 
   const handleMinChange = (event) => {
     setMin(Math.min(Number(event.target.value), max));
-    // console.log(e);
   };
 
   const handleMaxChange = (event) => {
@@ -71,17 +61,15 @@ export default function Filter() {
     setTarget(event.target);
   };
   const handleChange = (value) => {
-    console.log(value);
     setMin(value[0]);
     setMax(value[1]);
   };
-  console.log("ini min", min);
 
   return (
     <>
       <div ref={ref} style={{ minWidth: `${btnApply ? "90px" : ""}` }}>
-        <div className="btn-attendees" onClick={handleClick}>
-          <img src={FilterIcon} alt="img-filter" /> {btnApply && btnApply}
+        <div className={`btn-attendees ${btnApply ? ' active-attendees' : ''}`} onClick={handleClick}>
+          <img src={btnApply ? FilterIcon2 : FilterIcon} alt="img-filter" /> <span>{btnApply}</span>
         </div>
         <Overlay
           show={show}
@@ -93,13 +81,13 @@ export default function Filter() {
           <Popover id="popover-contained">
             <Popover.Body className="filter-sort">
               <div className="row">
-                <div className="col-6" style={{ fontSize: "24px" }}>
+                <div className="col-6 title-filter-sort">
                   Filter & Sort
                 </div>
                 <div className="col-6 d-flex justify-content-end">
                   <img
                     src={CloseIcon}
-                    style={{cursor: 'pointer', width: '26px'}}
+                    style={{ cursor: 'pointer', width: '26px' }}
                     alt="img-close"
                     onClick={() => {
                       setShow(false);
@@ -107,46 +95,35 @@ export default function Filter() {
                   />
                 </div>
               </div>
-              <p style={{paddingTop: '32px', margin:0, paddingBottom: '8px'}}>Sort by:</p>
-              <div className="row">
-                <div className="col-6 pr-0">
-                  <button
-                    type="submit"
-                    class={`btn ${btnRelevance ? "btn-primary" : "btn-light"}`}
-                    style={{width: '100%'}}
-                    onClick={() => {
-                      setBtnRelevance(true);
-                      setBtnDistance(false);
-                    }}
-                  >
-                    Relevance
-                  </button>
+              <p style={{ paddingTop: '10px', margin: 0, paddingBottom: '8px' }}>Sort by:</p>
+              <div className="row tab-filter">
+                <div
+                  className={`col-6 pr-0 item-filter ${btnRelevance ? "active-filter" : "non-active-filter "}`}
+                  onClick={() => {
+                    setBtnRelevance(true);
+                    setBtnDistance(false);
+                  }}>
+                  Relevance
                 </div>
-                <div className="col-6 pl-0">
-                  <button
-                    type="submit"
-                    class={`btn ${!btnDistance ? "btn-light" : "btn-primary"}`}
-                    style={{width: '100%'}}
-                    onClick={() => {
-                      setBtnDistance(true);
-                      setBtnRelevance(false);
-                    }}
-                  >
-                    Distance
-                  </button>
+                <div
+                  className={`col-6 pl-0 item-filter ${btnDistance ? "active-filter" : "non-active-filter "}`}
+                  onClick={() => {
+                    setBtnDistance(true);
+                    setBtnRelevance(false);
+                  }}>
+                  Distance
                 </div>
               </div>
-              <div style={{borderBottom: '1px solid #D0D0D3', paddingTop: '24px'}}></div>
-              <div style={{paddingTop: '24px'}}>
-                <p style={{margin: 0, paddingBottom: '16px'}}>Price range:</p>
-                <div style={{minWidth: '310px', paddingBottom: '16px'}}>
+              <div style={{ borderBottom: '1px solid #D0D0D3', paddingTop: '24px' }}></div>
+              <div style={{ paddingTop: '24px' }}>
+                <p style={{ margin: 0, paddingBottom: '16px' }}>Price range:</p>
+                <div style={{ minWidth: '310px', paddingBottom: '16px' }}>
                   <Range
                     min={0}
                     max={5000}
                     defaultValue={[0, 5000]}
                     value={[Number(min), Number(max)]}
                     handle={handle}
-                    // marks={marks}
                     allowCross={false}
                     onChange={handleChange}
                     trackStyle={[trackStyle]}
@@ -154,13 +131,13 @@ export default function Filter() {
                   />
                 </div>
               </div>
-              <div className="row" style={{paddingBottom: '24px'}}>
+              <div className="row" style={{ paddingBottom: '24px' }}>
                 <div className="col">
-                  SAR{" "}
+                  SAR
                   <input
+                    className="filter-input"
                     type="number"
                     id="min-input"
-                    style={{width: '50px', marginLeft: '8px'}}
                     value={min}
                     onChange={handleMinChange}
                     min="0"
@@ -168,10 +145,10 @@ export default function Filter() {
                   />
                 </div>
                 <div className="col d-flex justify-content-end ">
-                  SAR{" "}
+                  SAR
                   <input
+                    className="filter-input"
                     type="number"
-                    style={{width: '50px', marginLeft: '8px'}}
                     id="max-input"
                     value={max}
                     onChange={handleMaxChange}
@@ -182,10 +159,10 @@ export default function Filter() {
               </div>
               <button
                 type="submit"
-                class={`btn btn-primary`}
-                style={{width: '100%'}}
+                className={`btn btn-primary`}
+                style={{ width: '100%' }}
                 onClick={() => {
-                  setBtnApply("2 Filter");
+                  setBtnApply("2 Filters");
                   setShow(false);
                 }}
               >

@@ -1,16 +1,11 @@
 import Modal from "react-modal";
 import React, { useState } from 'react';
 import Location from "../../../assets/img/Icon/Location.svg";
-import usePlacesAutocomplete, {
-  getGeocode,
-  getLatLng,
-} from "use-places-autocomplete";
+import usePlacesAutocomplete from "use-places-autocomplete";
 
 const ModalAddress = ({
   parentDivClassName,
-  optionData
 }) => {
-  const [selectOption, setSelectOption] = useState('');
   const [openModal, setOpenModal] = useState(false);
 
 

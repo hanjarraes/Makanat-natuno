@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
 import DatepickerIcon from "../../assets/img/Icon/datepicker.svg";
 
-export default function Datepick() {
+export default function Datepick({ placeholder }) {
   const [startDate, setStartDate] = useState("");
   const [selectedStartTime, setSelectedStartTime] = useState("");
   const [selectedEndTime, setSelectedEndTime] = useState("");
@@ -135,7 +135,7 @@ export default function Datepick() {
         {!startDate ? (
           <>
             <img src={DatepickerIcon} alt="img-datepick" />
-            <span>when?</span>
+            <span>{placeholder}</span>
           </>
         ) : (
           <>

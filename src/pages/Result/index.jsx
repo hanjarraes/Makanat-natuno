@@ -23,6 +23,7 @@ import LogoList from "../../assets/img/Icon/list.svg";
 import LogoMap from "../../assets/img/Icon/map.svg";
 import ModalSelect from "../../widget/Mobile/ModalSelect";
 import ModalAddress from "../../widget/Mobile/ModalAddress";
+import FilterMobile from "./FilterMobile";
 
 const Result = () => {
   const { isLoaded } = useLoadScript({
@@ -33,21 +34,28 @@ const Result = () => {
   const [activities, setActivities] = useState([]);
   const [isSwitch, setIsSwitch] = useState(true);
   const [isSwitchM, setIsSwitchM] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+
   const [addressVal, setAddressVal] = useState(null);
+  ;
   const center = useMemo(() => ({ lat: 43.45, lng: -80.49 }), []);
+
+
 
   const [dataContent, setDataContent] = useState([]);
   const [dataPage, setDataPage] = useState([]);
   const [selectPage, setSelectPage] = useState(1);
 
   const [dimension, setDimension] = useState({
-    height: window.innerHeight - 276,
+    height: window.innerHeight - 254,
     width: window.innerWidth,
   });
   const { height } = dimension;
 
-
-
+  let titleTop = `Showing 12 of ${ContentCard.length} result for Production spaces near Riyadh`
+  if (window.matchMedia('screen and (max-width: 1400px)').matches) {
+    titleTop = `${ContentCard.length} Production spaces near Riyadh, Saudi Arabia.`
+  }
   useEffect(() => {
     if (window.matchMedia('screen and (max-width: 762px)').matches) {
       setIsSwitchM(false);
@@ -60,7 +68,7 @@ const Result = () => {
       };
     } else {
       const dimension = setDimension({
-        height: window.innerHeight - 276,
+        height: window.innerHeight - 254,
       });
       window.addEventListener('resize', dimension);
       return () => {
@@ -82,7 +90,7 @@ const Result = () => {
   return (
     <div>
       <Header />
-      {isLoaded ? 
+      {isLoaded ?
         <>
           <div className="row py-md-3 nav-result">
             <div className="col-6 py-3 d-md-none d-block">
@@ -109,7 +117,7 @@ const Result = () => {
                 selectedValue={addressVal}
                 setSelected={setAddressVal}
               />
-              <Datepick />
+              <Datepick placeholder={"When ?"} />
               <Options options={optionAttendees} parentDivClassName="pr-2" />
               <Filter />
             </div>
@@ -141,11 +149,8 @@ const Result = () => {
                 <div className={`${isSwitch ? 'col-md-6 ' : 'col-md-12 '} d-flex`}>
                   <div className='w-100'>
                     <div className="row px-3 top-content-card">
-                      <div className={`col-md-6 py-3 title-top d-md-flex d-none`}>
-                        Showing 12 of {ContentCard.length} result for Production spaces near Riyadh
-                      </div>
-                      <div className="d-md-none pt-3 d-flex col-12">
-                        {ContentCard.length} Production spaces near Riyadh, Saudi Arabia.
+                      <div className={`col-md-6 py-md-3 pt-3 title-top d-flex col-12`}>
+                        {titleTop}
                       </div>
                       <div className={`col-md-6 col-12 py-3 p-md-0 pr-3`}>
                         <SelectMulti
@@ -209,7 +214,7 @@ const Result = () => {
         </>
         : ''}
       <div className="d-md-none btn-filter-map">
-        <div className="item-filter-map">
+        <div className="item-filter-map" onClick={() => setOpenModal(!openModal)}>
           <img src={LogoFilter} alt="LogoFilter" />
           <span>Filter</span>
         </div>
@@ -227,6 +232,7 @@ const Result = () => {
             </>}
         </div>
       </div>
+      <FilterMobile openModal={openModal} setOpenModal={setOpenModal} />
     </div>
   );
 };

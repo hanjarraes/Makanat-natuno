@@ -9,7 +9,7 @@ const Options = ({
   const [openModal, setOpenModal] = useState(false);
   return (
     <div className={parentDivClassName}>
-      <div onClick={() => setOpenModal(!openModal)} className={`btn-attendees px-3${selectOption ? ' active-attendees' : ''}`}>
+      <div onClick={() => setOpenModal(!openModal)} className={`btn-attendees px-3 ${selectOption ? ' active-attendees' : ''}`}>
         {selectOption ? '' :
           <img src={Attendees} alt="img-attendees" />
         }

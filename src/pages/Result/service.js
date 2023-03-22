@@ -17,7 +17,8 @@ export const optionAttendees = [
   { value: "1", label: "2 to 10" },
   { value: "2", label: "11 to 25" },
   { value: "3", label: "26 to 50" },
-  { value: "4", label: "Over 100" },
+  { value: "4", label: "51 to 100" },
+  { value: "5", label: "Over 100" },
 ];
 
 export const colourOptions = [

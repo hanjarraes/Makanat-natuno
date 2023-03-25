@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import {
   optionAttendees,
 } from "./service";
-import Datepick from "../../widget/Datepick";
+// import Datepick from "../../widget/Datepick";
 
 import Slider, { SliderTooltip } from "rc-slider";
+import DatePickMobile from "../../widget/Datepick/DatePickMobile";
 
 
 
@@ -16,6 +17,23 @@ const FilterMobile = ({ openModal, setOpenModal }) => {
   const [selectOption, setSelectOption] = useState('');
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(5000);
+
+  const [dimension, setDimension] = useState({
+    height: window.innerHeight - 200,
+    width: window.innerWidth,
+  });
+  const { height } = dimension;
+
+  useEffect(() => {
+    const dimension = setDimension({
+      height: window.innerHeight - 200,
+    });
+    window.addEventListener('resize', dimension);
+    return () => {
+      window.removeEventListener('resize', dimension);
+    };
+
+  }, []);
 
   const handleStyle = { backgroundColor: "#2A4DFF", borderColor: "#2A4DFF", height: 20, width: 20 };
   const trackStyle = { backgroundColor: "#2A4DFF", height: 10 };
@@ -77,9 +95,9 @@ const FilterMobile = ({ openModal, setOpenModal }) => {
         <span>Filter</span>
         <i className="ri-close-line" onClick={() => setOpenModal(!openModal)} />
       </div>
-      <div className="content-modal">
-        <div className="title-modal">When ?</div>
-        <Datepick placeholder={"Select Date & Time"} />
+      <div className="content-modal" style={{ height: height }}>
+        <div className="title-modal">When?</div>
+        <DatePickMobile />
         <hr />
         <div className="title-modal">Attendees</div>
         <div className="options-attends">

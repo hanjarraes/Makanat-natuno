@@ -352,6 +352,20 @@ textarea.form-control {
   .css-bp4de4-menu {
     z-index: 20;
   }
+  .select__control {
+    .select__value-container {
+      .select__multi-value {
+        .css-wsp0cs-MultiValueGeneric {
+          font-size: 14px;
+          font-weight: bolder;
+        }
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
 }
 
 .input-Address {

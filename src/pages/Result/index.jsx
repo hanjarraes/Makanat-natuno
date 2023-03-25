@@ -35,12 +35,8 @@ const Result = () => {
   const [isSwitch, setIsSwitch] = useState(true);
   const [isSwitchM, setIsSwitchM] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-
   const [addressVal, setAddressVal] = useState(null);
-  ;
   const center = useMemo(() => ({ lat: 43.45, lng: -80.49 }), []);
-
-
 
   const [dataContent, setDataContent] = useState([]);
   const [dataPage, setDataPage] = useState([]);
@@ -117,7 +113,7 @@ const Result = () => {
                 selectedValue={addressVal}
                 setSelected={setAddressVal}
               />
-              <Datepick placeholder={"When ?"} />
+              <Datepick placeholder={"When?"} />
               <Options options={optionAttendees} parentDivClassName="pr-2" />
               <Filter />
             </div>
@@ -152,7 +148,7 @@ const Result = () => {
                       <div className={`col-md-6 py-md-3 pt-3 title-top d-flex col-12`}>
                         {titleTop}
                       </div>
-                      <div className={`col-md-6 col-12 py-3 p-md-0 pr-3`}>
+                      <div className={`col-md-6 col-12 py-3 pr-3`}>
                         <SelectMulti
                           selectedValue={activities}
                           onChangeDropdown={(e) => setActivities(e)}
@@ -162,7 +158,7 @@ const Result = () => {
                         />
                       </div>
                     </div>
-                    <div className="row overflow-auto px-3" style={{ height: height }} >
+                    <div className="row overflow-auto pl-3 pr-2" style={{ height: height }} >
                       {dataContent.map((itemContent, idx) => {
                         return (
                           <div className={`${isSwitch ? 'col-md-6 ' : 'col-md-3 '} pt-2 pb-3`} key={idx} >

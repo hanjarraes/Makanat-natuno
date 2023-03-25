@@ -217,8 +217,8 @@ input::-webkit-inner-spin-button {
 
     .nav-item {
       .vertical-line {
-        border-left: 2px solid #ffffff;
-        height: 15px;
+        border-left: 1px solid #ffffff;
+        height: 20px;
         margin-right: 10px;
       }
 
@@ -229,7 +229,10 @@ input::-webkit-inner-spin-button {
 
     .dropdown {
       cursor: pointer;
-
+      i {
+        font-size: 26px;
+        padding-right: 10px;
+      }
       .dropdown-item-nav {
         display: flex;
         position: absolute;
@@ -971,6 +974,79 @@ footer {
       }
     }
   }
+  .card-content-img {
+    .new-text {
+      width: fit-content;
+      font-size: 14px;
+      font-weight: bolder;
+      padding: 6px 8px;
+      border-radius: 4px;
+      position: absolute;
+      top: 23px;
+      left: 25px;
+      z-index: 10;
+    }
+    .like-icon {
+      position: absolute;
+      z-index: 10;
+      right: 0;
+      top: 23px;
+      right: 25px;
+      border-radius: 90px;
+      padding: 0 6px;
+      padding-top: 1px;
+      .ri-heart-3-line {
+        font-size: 18px;
+      }
+      .ri-heart-3-fill {
+        font-size: 18px;
+      }
+    }
+    .title-content-card {
+      font-size: 18px;
+    }
+    .rate-content-card {
+      span {
+        padding: 0 5px;
+      }
+    }
+    .desc-content-card {
+      font-size: 14px;
+      letter-spacing: 0.01em;
+    }
+    .hero-slider-root {
+      .hero-slider-wrapper {
+        height: 182px !important;
+        .index-module_Wrapper__ZIVLd {
+          display: flex;
+          .index-module_Button__hkx4Z {
+            svg {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    &:hover {
+      .hero-slider-root {
+        .hero-slider-wrapper {
+          .index-module_Wrapper__ZIVLd {
+            display: flex;
+            .index-module_Button__hkx4Z {
+              svg {
+                width: 27px;
+                height: 27px;
+                padding-right: 6px;
+                padding-left: 8px;
+                margin: 13px;
+              }
+            }
+          }
+        }
+      }
+      transition: box-shadow 0.3s;
+    }
+  }
 }
 
 @media (max-width: 1200px) {
@@ -1001,16 +1077,16 @@ footer {
       padding: 6px 8px;
       border-radius: 4px;
       position: absolute;
-      top: 27px;
-      left: 18px;
+      top: 20px;
+      left: 20px;
       z-index: 10;
     }
     .like-icon {
       position: absolute;
       z-index: 10;
       right: 0;
-      top: 27px;
-      right: 18px;
+      top: 20px;
+      right: 20px;
       border-radius: 90px;
       padding: 0 6px;
       padding-top: 1px;
@@ -1057,7 +1133,7 @@ footer {
                 height: 27px;
                 padding-right: 6px;
                 padding-left: 8px;
-                margin: 0px;
+                margin: 5px;
               }
             }
           }
@@ -1222,7 +1298,104 @@ footer {
       margin: 30px 0;
     }
     .content-modal {
+      overflow-y: auto;
       padding: 20px;
+      .react-datepicker-popper {
+        position: absolute;
+        inset: 0px auto auto 0px;
+        transform: none !important;
+        width: 100% !important;
+        height: 100vh !important;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        .react-datepicker {
+          padding-top: 64px;
+          width: 100% !important;
+          height: 100vh !important;
+          .react-datepicker__navigation {
+            margin-top: 60px;
+          }
+          .react-datepicker__month-container {
+            width: 100%;
+            .react-datepicker__header {
+              font-size: 16px;
+              .react-datepicker__current-month {
+                font-size: 14px;
+              }
+              .react-datepicker__day-names {
+                display: flex;
+                justify-content: space-around;
+                padding: 8px 31px;
+              }
+            }
+            .react-datepicker__month {
+              .react-datepicker__week {
+                padding: 8px 31px;
+                font-size: 14px;
+                display: flex;
+                justify-content: space-around;
+                .react-datepicker__day {
+                  height: 34px;
+                  width: 36px;
+                  display: flex;
+                  font-size: 14px;
+                  align-items: center;
+                  justify-content: center;
+                }
+              }
+            }
+          }
+          .react-datepicker__input-time-container {
+            margin: 0 !important;
+            left: none !important;
+            .react-datepicker-time__input-container {
+              width: 100%;
+              .react-datepicker-time__input {
+                width: 100%;
+                .custom-add-time {
+                  min-width: 252px;
+                  width: 100%;
+                  border-top: 1px solid #d0d0d3;
+                  padding: 24px 26px;
+                  .datepick-time {
+                    margin: 0 5px;
+                    font-size: 16px;
+                    height: 50px;
+                  }
+                }
+                .footer-btn-date {
+                  margin-right: 23px;
+                  margin-left: 11px;
+                  margin-top: 21px;
+                  display: flex;
+                  align-items: center;
+                  button {
+                    font-size: 14px;
+                    height: 44px;
+                  }
+                }
+                .header-close-date {
+                  display: flex;
+                  font-size: 18px;
+                  justify-content: space-between;
+                  font-weight: bolder;
+                  position: absolute;
+                  width: 100%;
+                  left: 0;
+                  top: -17px;
+                  padding: 24px 7px;
+                  align-items: center;
+                  i {
+                    font-size: 38px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       .title-modal {
         font-size: 16px;
         margin-bottom: 10px;
@@ -1329,7 +1502,7 @@ footer {
       }
       span {
         cursor: pointer;
-        font-weight: bold ;
+        font-weight: bold;
         font-size: 14px;
         text-align: center;
         text-decoration-line: underline;

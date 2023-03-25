@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import { HambergerMenu, ArrowDown2, ArrowUp2 } from "iconsax-react";
+import { HambergerMenu } from "iconsax-react";
 import Modal from "react-modal";
 import Close from "../../assets/img/Icon/close.svg";
 import LogoMakanat from "../../assets/img/Icon/makanat_logo.svg";
@@ -64,9 +64,9 @@ const Header = () => {
             <div>
               <ul className="navbar-nav nav-header-custom mr-auto d-flex align-items-center">
                 <li className="nav-item dropdown">
-                  <div onClick={() => setOpenDropdown(!openDropdown)}>
+                  <div className="d-flex align-items-center" onClick={() => setOpenDropdown(!openDropdown)}>
                     {textData.listTitle}
-                    {openDropdown ? <ArrowUp2 /> : <ArrowDown2 />}
+                    {openDropdown ? <i className="ri-arrow-up-s-line" /> : <i className="ri-arrow-down-s-line" />}
                   </div>
                   {openDropdown ? (
                     <div className="dropdown-item-nav">

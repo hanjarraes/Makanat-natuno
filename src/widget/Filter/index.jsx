@@ -144,7 +144,7 @@ export default function Filter() {
                     max="5000"
                   />
                 </div>
-                <div className="col d-flex justify-content-end ">
+                <div className="col d-flex justify-content-end align-items-center ">
                   SAR
                   <input
                     className="filter-input"

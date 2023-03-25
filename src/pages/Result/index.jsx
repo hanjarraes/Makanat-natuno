@@ -43,7 +43,7 @@ const Result = () => {
   const [selectPage, setSelectPage] = useState(1);
 
   const [dimension, setDimension] = useState({
-    height: window.innerHeight - 254,
+    height: window.innerHeight - 154,
     width: window.innerWidth,
   });
   const { height } = dimension;
@@ -64,7 +64,7 @@ const Result = () => {
       };
     } else {
       const dimension = setDimension({
-        height: window.innerHeight - 254,
+        height: window.innerHeight - 154,
       });
       window.addEventListener('resize', dimension);
       return () => {
@@ -143,8 +143,8 @@ const Result = () => {
             (
               <div className="row bg-white" style={{ boxShadow: "rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset" }}>
                 <div className={`${isSwitch ? 'col-md-6 ' : 'col-md-12 '} d-flex`}>
-                  <div className='w-100'>
-                    <div className="row px-3 top-content-card">
+                  <div className='overflow-auto' style={{ height: height }} >
+                    <div className="row w-100 pl-3 pr-2 top-content-card">
                       <div className={`col-md-6 py-md-3 pt-3 title-top d-flex col-12`}>
                         {titleTop}
                       </div>
@@ -158,7 +158,7 @@ const Result = () => {
                         />
                       </div>
                     </div>
-                    <div className="row overflow-auto pl-3 pr-2" style={{ height: height }} >
+                    <div className="row w-100 pl-3 pr-2">
                       {dataContent.map((itemContent, idx) => {
                         return (
                           <div className={`${isSwitch ? 'col-md-6 ' : 'col-md-3 '} pt-2 pb-3`} key={idx} >
@@ -167,7 +167,7 @@ const Result = () => {
                         )
                       })}
                     </div>
-                    <ul className="pagination justify-content-center">
+                    <ul className="pagination justify-content-center mb-3">
                       <li className="page-item" onClick={() => {
                         if (selectPage > 1) setSelectPage(selectPage - 1)
                       }}>

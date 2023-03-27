@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import Header from "../../Component/Header";
 import MapAddress from "../../widget/MapAddress";
 import SelectItem from "../../widget/SelectItem";
@@ -24,18 +24,21 @@ import LogoMap from "../../assets/img/Icon/map.svg";
 import ModalSelect from "../../widget/Mobile/ModalSelect";
 import ModalAddress from "../../widget/Mobile/ModalAddress";
 import FilterMobile from "./FilterMobile";
-
+const libraries = ["places"];
 const Result = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyBofbW6GkcildWJ_h7uPhJrRy0XkUwL9iE",
-    libraries: ["places"],
+    libraries,
   });
+  const divRef = useRef(null);
+  const [isAtBottom, setIsAtBottom] = useState(0);
   const [production, setProduction] = useState([]);
   const [activities, setActivities] = useState([]);
   const [isSwitch, setIsSwitch] = useState(true);
   const [isSwitchM, setIsSwitchM] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [addressVal, setAddressVal] = useState(null);
+  const [totalFilter, setTotalFilter] = useState('');
   const center = useMemo(() => ({ lat: 43.45, lng: -80.49 }), []);
 
   const [dataContent, setDataContent] = useState([]);
@@ -56,7 +59,7 @@ const Result = () => {
     if (window.matchMedia('screen and (max-width: 762px)').matches) {
       setIsSwitchM(false);
       const dimension = setDimension({
-        height: window.innerHeight - 330,
+        height: window.innerHeight - 150,
       });
       window.addEventListener('resize', dimension);
       return () => {
@@ -83,19 +86,35 @@ const Result = () => {
     showPagination({ selectPage, totalPages, setDataPage });
   }, [selectPage, totalPages]);
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const div = divRef.current;
+      setIsAtBottom(div.scrollTop);
+    };
+    const div = divRef.current;
+    if (div) {
+      div.addEventListener('scroll', handleScroll);
+      return () => {
+        div.removeEventListener('scroll', handleScroll);
+      };
+    }
+  });
+
+
   return (
     <div>
       <Header />
       {isLoaded ?
         <>
           <div className="row py-md-3 nav-result">
-            <div className="col-6 py-3 d-md-none d-block">
+            <div className={`col-6 d-md-none d-block ${isAtBottom === 0 ? 'py-3' : 'py-1'}`}>
               <ModalSelect optionData={optionProductions} />
             </div>
-            <div className="col-6 py-3 pl-0 d-md-none d-block">
+            <div className={`col-6 d-md-none d-block ${isAtBottom === 0 ? 'py-3' : 'py-1'}`}>
               <ModalAddress />
             </div>
-            <div className="col-md-10 d-none d-md-flex col-12 d-flex">
+            <div className="col-md-10 d-none d-md-flex col-12">
               <SelectItem
                 name="Plan"
                 options={optionProductions}
@@ -129,7 +148,7 @@ const Result = () => {
           </div>
           {isSwitchM ?
             (
-              <div className="col-12 d-flex justify-content-end" style={{ height: height + 166 }}>
+              <div className="col-12 d-flex justify-content-end" style={{ height: height }}>
                 <GoogleMap
                   zoom={16}
                   center={addressVal ? addressVal : center}
@@ -143,8 +162,8 @@ const Result = () => {
             (
               <div className="row bg-white" style={{ boxShadow: "rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset" }}>
                 <div className={`${isSwitch ? 'col-md-6 ' : 'col-md-12 '} d-flex`}>
-                  <div className='overflow-auto' style={{ height: height }} >
-                    <div className="row w-100 pl-3 pr-2 top-content-card">
+                  <div ref={divRef} style={{ height: height, overflow: 'auto' }} >
+                    <div className="row w-100 pl-3 top-content-card">
                       <div className={`col-md-6 py-md-3 pt-3 title-top d-flex col-12`}>
                         {titleTop}
                       </div>
@@ -158,7 +177,7 @@ const Result = () => {
                         />
                       </div>
                     </div>
-                    <div className="row w-100 pl-3 pr-2">
+                    <div className="row w-100 pl-3">
                       {dataContent.map((itemContent, idx) => {
                         return (
                           <div className={`${isSwitch ? 'col-md-6 ' : 'col-md-3 '} pt-2 pb-3`} key={idx} >
@@ -213,6 +232,10 @@ const Result = () => {
         <div className="item-filter-map" onClick={() => setOpenModal(!openModal)}>
           <img src={LogoFilter} alt="LogoFilter" />
           <span>Filter</span>
+          {totalFilter ?
+            <div className="text-filter">{totalFilter}</div>
+            : ''
+          }
         </div>
         <div className="vertical-line" />
         <div className="item-filter-map" onClick={() => setIsSwitchM(!isSwitchM)}>
@@ -228,7 +251,7 @@ const Result = () => {
             </>}
         </div>
       </div>
-      <FilterMobile openModal={openModal} setOpenModal={setOpenModal} />
+      <FilterMobile setTotal={setTotalFilter} openModal={openModal} setOpenModal={setOpenModal} />
     </div>
   );
 };

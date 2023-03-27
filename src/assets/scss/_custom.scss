@@ -162,6 +162,7 @@ input::-webkit-inner-spin-button {
     border-radius: 4px;
     margin: 2px;
     .item-filter {
+      cursor: pointer;
       padding: 9px 0px;
       color: #000;
       display: flex;
@@ -859,12 +860,14 @@ footer {
 
   .title-content-card {
     font-size: 20px;
+    margin-bottom: 8px;
     font-weight: bolder;
     color: #0d1126;
   }
   .rate-content-card {
     display: flex;
     align-items: center;
+    margin-bottom: 8px;
     span {
       padding: 0 5px;
     }
@@ -1597,6 +1600,7 @@ footer {
     position: absolute;
     display: flex;
     border-radius: 20px;
+    justify-content: center;
     background: #000000;
     box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.1);
     bottom: 69px;
@@ -1605,7 +1609,7 @@ footer {
     left: 0;
     right: 0;
     margin: 0 auto;
-    max-width: 210px;
+    max-width: 250px;
     .vertical-line {
       border: 1px solid #ffffff;
     }
@@ -1617,6 +1621,17 @@ footer {
       img {
         width: 25px;
         margin-right: 5px;
+      }
+
+      .text-filter {
+        width: 25px;
+        height: 25px;
+        background: #2a4dff;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
       }
     }
   }

@@ -10,7 +10,7 @@ import DatePickMobile from "../../widget/Datepick/DatePickMobile";
 
 
 
-const FilterMobile = ({ openModal, setOpenModal }) => {
+const FilterMobile = ({ openModal, setOpenModal, setTotal }) => {
   const { Range, Handle } = Slider;
   const [btnRelevance, setBtnRelevance] = useState(true);
   const [btnDistance, setBtnDistance] = useState(false);
@@ -178,11 +178,11 @@ const FilterMobile = ({ openModal, setOpenModal }) => {
       </div>
       <hr />
       <div className="footer-modal">
-        <span>Clear All</span>
+        <span onClick={() => { setOpenModal(!openModal); setTotal(''); }}>Clear All</span>
         <button
           type="submit"
           className={`btn btn-primary`}
-          onClick={() => setOpenModal(!openModal)}
+          onClick={() => { setOpenModal(!openModal); setTotal(4); }}
         >
           Apply Filter
         </button>

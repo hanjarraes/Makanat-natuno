@@ -72,7 +72,7 @@ const FilterMobile = ({ openModal, setOpenModal, setTotal }) => {
 
 
   const handleMinChange = (event) => {
-    setMin(Math.min(Number(event.target.value), max));
+    setMin(Math.min(Number(event.target.value), Number(max)));
   };
 
   const handleMaxChange = (event) => {
@@ -155,7 +155,7 @@ const FilterMobile = ({ openModal, setOpenModal, setTotal }) => {
                 className="filter-input"
                 type="number"
                 id="min-input"
-                value={min}
+                value={min.toLocaleString("id-ID")}
                 onChange={handleMinChange}
                 min="0"
                 max="5000"
@@ -167,7 +167,7 @@ const FilterMobile = ({ openModal, setOpenModal, setTotal }) => {
                 className="filter-input"
                 type="number"
                 id="max-input"
-                value={max}
+                value={max.toLocaleString("id-ID")}
                 onChange={handleMaxChange}
                 min="0"
                 max="5000"

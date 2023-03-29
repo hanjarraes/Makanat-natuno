@@ -133,7 +133,7 @@ export default function Filter({ filterShort, setFilterShort }) {
                     className="filter-input"
                     type="number"
                     id="min-input"
-                    value={min}
+                    value={min.toLocaleString("id-ID")}
                     onChange={handleMinChange}
                     min="0"
                     max="5000"
@@ -145,7 +145,7 @@ export default function Filter({ filterShort, setFilterShort }) {
                     className="filter-input"
                     type="number"
                     id="max-input"
-                    value={max}
+                    value={max.toLocaleString("id-ID")}
                     onChange={handleMaxChange}
                     min="0"
                     max="5000"

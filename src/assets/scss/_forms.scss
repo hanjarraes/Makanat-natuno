@@ -346,6 +346,17 @@ textarea.form-control {
 
 .css-b62m3t-container {
   width: 193px;
+  border-radius: 4px;
+  &:focus {
+    border: 1px solid #2a4dff;
+  }
+  .css-101egvs-control {
+    border: 1px solid #2a4dff !important;
+    &:hover {
+      border: 1px solid #2a4dff !important;
+    }
+  }
+
   .css-1u9des2-indicatorSeparator {
     display: none;
   }
@@ -365,6 +376,12 @@ textarea.form-control {
         }
       }
     }
+  }
+}
+
+.form-control {
+  &:hover {
+    border: 1px solid #2a4dff !important;
   }
 }
 

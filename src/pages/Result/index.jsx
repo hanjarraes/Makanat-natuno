@@ -104,18 +104,18 @@ const Result = () => {
       };
     }
   });
-  console.log(production)
   const ActiveReset = startDate || selectOption || filterShort || production != null || addressVal ? true : false
+
   return (
     <div>
       <Header />
       {isLoaded ?
         <>
           <div className="row py-md-3 nav-result">
-            <div className={`col-6 d-md-none d-block ${isAtBottom === 0 ? 'py-3' : 'py-1'}`}>
+            <div className={`col-6 d-md-none d-block ${isAtBottom === 0 ? 'py-3' : 'py-2'}`}>
               <ModalSelect optionData={optionProductions} selectedValue={production} />
             </div>
-            <div className={`col-6 d-md-none d-block ${isAtBottom === 0 ? 'py-3' : 'py-1'}`}>
+            <div className={`col-6 d-md-none d-block ${isAtBottom === 0 ? 'py-3' : 'py-2'}`}>
               <ModalAddress />
             </div>
             <div className="col-md-10 d-none d-md-flex col-12">
@@ -222,6 +222,11 @@ const Result = () => {
                           <i className="ri-arrow-left-s-line" />
                         </div>
                       </li>
+                      {selectPage > 2 ?
+                        <li className={`page-item `}>
+                          <div className="page-link ">...</div>
+                        </li>
+                        : ''}
                       {dataPage.map((data, idx) => {
                         return (
                           <li className={`page-item ${data === selectPage ? 'active-item' : ''}`} key={idx} onClick={() => setSelectPage(data)}>
@@ -229,6 +234,12 @@ const Result = () => {
                           </li>
                         )
                       })}
+                      {selectPage === totalPages ?
+                        ''
+                        :
+                        <li className={`page-item `}>
+                          <div className="page-link ">...</div>
+                        </li>}
                       <li className="page-item" onClick={() => {
                         if (selectPage < totalPages) setSelectPage(selectPage + 1)
                       }}>

@@ -965,23 +965,25 @@ footer {
   margin-top: 10px;
   .active-item {
     .page-link {
-      background-color: #0d1126;
-      color: #fff !important;
+      border: 1px solid #0d1126 !important;
+      color: #0d1126 !important;
+      margin-right: 0.8px;
     }
   }
   .page-item {
     .page-link {
+      border: 1px solid #d0d0d3;
       font-size: 16px;
       display: flex;
       align-items: center;
-      color: #0d1126;
+      color: #000;
       cursor: pointer;
       i {
         font-size: 16px;
       }
       &:hover {
-        background-color: #0d1126;
-        color: #fff;
+        border: 1px solid #0d1126;
+        color: #0d1126;
       }
     }
   }

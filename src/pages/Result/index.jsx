@@ -32,13 +32,16 @@ const Result = () => {
   });
   const divRef = useRef(null);
   const [isAtBottom, setIsAtBottom] = useState(0);
-  const [production, setProduction] = useState([]);
+  const [production, setProduction] = useState(null);
   const [activities, setActivities] = useState([]);
   const [isSwitch, setIsSwitch] = useState(true);
   const [isSwitchM, setIsSwitchM] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [addressVal, setAddressVal] = useState(null);
   const [totalFilter, setTotalFilter] = useState('');
+  const [startDate, setStartDate] = useState("");
+  const [selectOption, setSelectOption] = useState('')
+  const [filterShort, setFilterShort] = useState("");
   const center = useMemo(() => ({ lat: 43.45, lng: -80.49 }), []);
 
   const [dataContent, setDataContent] = useState([]);
@@ -55,6 +58,7 @@ const Result = () => {
   if (window.matchMedia('screen and (max-width: 1400px)').matches) {
     titleTop = `${ContentCard.length} Production spaces near Riyadh, Saudi Arabia.`
   }
+
   useEffect(() => {
     if (window.matchMedia('screen and (max-width: 762px)').matches) {
       setIsSwitchM(false);
@@ -100,8 +104,8 @@ const Result = () => {
       };
     }
   });
-
-
+  console.log(production)
+  const ActiveReset = startDate || selectOption || filterShort || production != null || addressVal ? true : false
   return (
     <div>
       <Header />
@@ -109,7 +113,7 @@ const Result = () => {
         <>
           <div className="row py-md-3 nav-result">
             <div className={`col-6 d-md-none d-block ${isAtBottom === 0 ? 'py-3' : 'py-1'}`}>
-              <ModalSelect optionData={optionProductions} />
+              <ModalSelect optionData={optionProductions} selectedValue={production} />
             </div>
             <div className={`col-6 d-md-none d-block ${isAtBottom === 0 ? 'py-3' : 'py-1'}`}>
               <ModalAddress />
@@ -132,11 +136,35 @@ const Result = () => {
                 selectedValue={addressVal}
                 setSelected={setAddressVal}
               />
-              <Datepick placeholder={"When?"} />
-              <Options options={optionAttendees} parentDivClassName="pr-2" />
-              <Filter />
+              <Datepick
+                placeholder={"When?"}
+                startDate={startDate}
+                setStartDate={setStartDate}
+              />
+              <Options
+                selectOption={selectOption}
+                setSelectOption={setSelectOption}
+                options={optionAttendees}
+                parentDivClassName="pr-2"
+              />
+              <Filter filterShort={filterShort} setFilterShort={setFilterShort} />
+              {ActiveReset ?
+                <div
+                  className="reset-all-filter"
+                  onClick={() => {
+                    setProduction(null);
+                    setAddressVal('');
+                    setStartDate('');
+                    setSelectOption('');
+                    setFilterShort('')
+                    if (addressVal) {
+                      const clearAddress = document.getElementById('clear-address');
+                      clearAddress.click();
+                    }
+                  }}>Reset</div>
+                : ''}
             </div>
-            <div className="col-2 d-none d-md-flex  d-flex justify-content-end hidden-map">
+            <div className="col-2 d-none d-md-flex d-flex justify-content-end hidden-map">
               <div className="switch-map">
                 <span>Map</span>
                 <Switch
@@ -161,8 +189,8 @@ const Result = () => {
             :
             (
               <div className="row bg-white" style={{ boxShadow: "rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset" }}>
-                <div className={`${isSwitch ? 'col-md-6 ' : 'col-md-12 '} d-flex`}>
-                  <div ref={divRef} style={{ height: height, overflow: 'auto' }} >
+                <div className={`${isSwitch ? 'col-md-6 ' : 'col-md-12 '} pr-0 d-flex card-item`}>
+                  <div ref={divRef} className="content-card-item" style={{ height: height }} >
                     <div className="row w-100 pl-3 top-content-card">
                       <div className={`col-md-6 py-md-3 pt-3 title-top d-flex col-12`}>
                         {titleTop}
@@ -212,7 +240,7 @@ const Result = () => {
                   </div>
                 </div>
                 {isSwitch ?
-                  <div className="col-md-6 d-flex justify-content-end">
+                  <div className="col-md-6 d-flex justify-content-end pl-0">
                     <GoogleMap
                       zoom={16}
                       center={addressVal ? addressVal : center}

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { HambergerMenu } from "iconsax-react";
 import Modal from "react-modal";
-import Close from "../../assets/img/Icon/close.svg";
+import Close from "../../assets/img/Icon/cross.svg";
 import LogoMakanat from "../../assets/img/Icon/makanat_logo.svg";
 import World from "../../assets/img/Icon/world.svg";
 

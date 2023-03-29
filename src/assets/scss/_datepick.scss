@@ -4,7 +4,7 @@
   .react-datepicker__current-month {
     padding-top: 24px;
     padding-bottom: 17px;
-    border: 1px solid #d0d0d3;
+    border-bottom: 1px solid #d0d0d3;
     min-width: 280px;
   }
 }
@@ -20,6 +20,7 @@
 .react-datepicker-popper[data-placement^="bottom"] {
   padding-top: 0 !important;
   z-index: 20;
+  transform: translate3d(451px, 38px, 0px) !important;
 }
 
 .react-datepicker__header {

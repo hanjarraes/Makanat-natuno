@@ -1,8 +1,4 @@
 import React, { useRef, useState } from "react";
-import {
-  Overlay,
-  Popover,
-} from "react-bootstrap";
 import FilterIcon from "../../assets/img/Icon/filter.svg";
 import FilterIcon2 from "../../assets/img/Icon/filter2.svg";
 import CloseIcon from "../../assets/img/Icon/close.svg";
@@ -37,15 +33,13 @@ const handle = (props) => {
 const handleStyle = { backgroundColor: "#09ACF8", borderColor: "#09ACF8" };
 const trackStyle = { backgroundColor: "#09ACF8" };
 
-export default function Filter() {
+export default function Filter({ filterShort, setFilterShort }) {
   const [show, setShow] = useState(false);
-  const [target, setTarget] = useState(null);
   const ref = useRef(null);
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(5000);
   const [btnRelevance, setBtnRelevance] = useState(true);
   const [btnDistance, setBtnDistance] = useState(false);
-  const [btnApply, setBtnApply] = useState("");
 
   const handleMinChange = (event) => {
     setMin(Math.min(Number(event.target.value), max));
@@ -56,9 +50,8 @@ export default function Filter() {
     setMax(Math.max(newMax, min));
   };
 
-  const handleClick = (event) => {
+  const handleClick = () => {
     setShow(!show);
-    setTarget(event.target);
   };
   const handleChange = (value) => {
     setMin(value[0]);
@@ -67,19 +60,21 @@ export default function Filter() {
 
   return (
     <>
-      <div ref={ref} style={{ minWidth: `${btnApply ? "90px" : ""}` }}>
-        <div className={`btn-attendees ${btnApply ? ' active-attendees' : ''}`} onClick={handleClick}>
-          <img src={btnApply ? FilterIcon2 : FilterIcon} alt="img-filter" /> <span>{btnApply}</span>
+      <div ref={ref} style={{ minWidth: `${filterShort ? "90px" : ""}`, paddingLeft: 2 }}>
+        <div className={`btn-attendees ${filterShort ? ' active-attendees' : ''}`} onClick={handleClick}>
+          <img src={filterShort ? FilterIcon2 : FilterIcon} alt="img-filter" /> <span>{filterShort}</span>
         </div>
-        <Overlay
-          show={show}
-          target={target}
-          placement="bottom"
-          container={ref}
-          containerPadding={20}
-        >
-          <Popover id="popover-contained">
-            <Popover.Body className="filter-sort">
+        {show ?
+          <label
+            className="closeLabel"
+            htmlFor={`select-opener`}
+            onClick={() => setShow(false)}
+            aria-hidden="true"
+          />
+          : ''}
+        {show ?
+          <div className="modal-filter" >
+            <div className="filter-sort">
               <div className="row">
                 <div className="col-6 title-filter-sort">
                   Filter & Sort
@@ -162,15 +157,15 @@ export default function Filter() {
                 className={`btn btn-primary`}
                 style={{ width: '100%' }}
                 onClick={() => {
-                  setBtnApply("2 Filters");
+                  setFilterShort("2 Filters");
                   setShow(false);
                 }}
               >
                 Apply
               </button>
-            </Popover.Body>
-          </Popover>
-        </Overlay>
+            </div>
+          </div>
+          : ''}
       </div>
     </>
   );

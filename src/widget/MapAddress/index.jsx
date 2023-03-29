@@ -20,9 +20,8 @@ const MapAddress = ({
   setSelected,
   parentDivClassName,
   placeholder,
-  className
+  className,
 }) => {
-
   const {
     ready,
     value,
@@ -61,7 +60,7 @@ const MapAddress = ({
             </ComboboxList>
           </ComboboxPopover>
         </Combobox>
-        {selectedValue ? <img src={Close} className="clear-address" onClick={() => { setSelected(null); setValue('') }} alt="close" /> : ''}
+        {selectedValue ? <img src={Close} id="clear-address" className="clear-address" onClick={() => { setSelected(null); setValue('') }} alt="close" /> : ''}
       </div>
     </div>
   );

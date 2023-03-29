@@ -4,8 +4,7 @@ import { format } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
 import DatepickerIcon from "../../assets/img/Icon/datepicker.svg";
 
-export default function Datepick({ placeholder }) {
-  const [startDate, setStartDate] = useState("");
+export default function Datepick({ placeholder, startDate, setStartDate }) {
   const [selectedStartTime, setSelectedStartTime] = useState("");
   const [selectedEndTime, setSelectedEndTime] = useState("");
   const [hours, setHours] = useState([]);
@@ -29,6 +28,13 @@ export default function Datepick({ placeholder }) {
     }
     setHours(hourOptions);
   }, [select]);
+
+  useEffect(() => {
+    if (startDate === "") {
+      setSelectedStartTime("");
+      setSelectedEndTime("");
+    }
+  }, [startDate]);
 
   let dayLength, monthLength;
   if (startDate) {
@@ -147,14 +153,24 @@ export default function Datepick({ placeholder }) {
     </>
   ));
   return (
-    <DatePicker
-      selected={startDate}
-      onChange={(date) => setStartDate(date)}
-      showTimeInput
-      open={select}
-      minDate={new Date()}
-      customTimeInput={<ExampleCustomTimeInput />}
-      customInput={<ExampleCustomInput />}
-    />
+    <>
+      {select ?
+        <label
+          className="closeLabel"
+          htmlFor={`select-opener`}
+          onClick={() => setSelect(false)}
+          aria-hidden="true"
+        />
+        : ''}
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        showTimeInput
+        open={select}
+        minDate={new Date()}
+        customTimeInput={<ExampleCustomTimeInput />}
+        customInput={<ExampleCustomInput />}
+      />
+    </>
   );
 }

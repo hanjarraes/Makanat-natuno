@@ -243,7 +243,7 @@ input::-webkit-inner-spin-button {
         border-radius: 8px;
         top: 39px;
         right: 0px;
-
+        z-index: 30;
         a {
           cursor: pointer;
           padding: 10px;
@@ -654,12 +654,42 @@ footer {
   }
 }
 
+.closeLabel {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  top: -88px;
+  bottom: 0;
+  left: -4px;
+  right: 0;
+  z-index: 20;
+}
+
 .nav-result {
   padding-right: 3rem;
   padding-left: 3rem;
   background-color: #ffffff;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  border-bottom: 0.5px solid #9ea0a8;
+  .modal-filter {
+    position: absolute;
+    z-index: 20;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid;
+    border-radius: 4px;
+    border: 1px solid #d0d0d3;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  .reset-all-filter {
+    display: flex;
+    text-decoration: underline;
+    align-items: center;
+    color: #3d4152;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 20px;
+  }
   .hidden-map {
     .switch-map {
       display: flex;
@@ -693,7 +723,7 @@ footer {
   }
 
   .option-attendees {
-    top: 61px;
+    top: 49px;
     position: absolute;
     background: #fff;
     width: 265px;
@@ -793,6 +823,14 @@ footer {
   width: 100%;
   height: 100%;
 }
+.card-item {
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+  .content-card-item {
+    overflow: auto;
+  }
+}
 
 .top-content-card {
   display: flex;
@@ -861,7 +899,6 @@ footer {
   .title-content-card {
     font-size: 20px;
     margin-bottom: 8px;
-    font-weight: bolder;
     color: #0d1126;
   }
   .rate-content-card {
@@ -949,7 +986,7 @@ footer {
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
   .App {
     overflow: hidden;
   }
@@ -965,14 +1002,14 @@ footer {
       min-width: 230px;
       width: 230px;
       div {
-        min-width: 230px;
-        width: 230px;
+        min-width: 161px;
+        width: 161px;
         input {
           padding-left: 10px;
           font-size: 16px;
           line-height: 24px;
-          min-width: 231px;
-          width: 231px;
+          min-width: 163px;
+          width: 163px;
         }
       }
     }
@@ -1317,6 +1354,7 @@ footer {
           padding-top: 64px;
           width: 100% !important;
           height: 100vh !important;
+          border: 1px solid #d0d0d3 !important;
           .react-datepicker__navigation {
             margin-top: 60px;
           }

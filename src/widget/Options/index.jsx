@@ -4,8 +4,9 @@ import Attendees from "../../assets/img/Icon/attendees.svg";
 const Options = ({
   options,
   parentDivClassName,
+  selectOption,
+  setSelectOption
 }) => {
-  const [selectOption, setSelectOption] = useState('');
   const [openModal, setOpenModal] = useState(false);
   return (
     <div className={parentDivClassName}>
@@ -17,6 +18,14 @@ const Options = ({
           {selectOption ? selectOption + ' People' : 'Attendees'}
         </span>
       </div>
+      {openModal ?
+        <label
+          className="closeLabel"
+          htmlFor={`select-opener`}
+          onClick={() => setOpenModal(false)}
+          aria-hidden="true"
+        />
+        : ''}
       {openModal ? (
         <div className="option-attendees">
           <div className="options">

@@ -90,7 +90,7 @@ export default function Filter({ filterShort, setFilterShort }) {
                   />
                 </div>
               </div>
-              <p style={{ paddingTop: '10px', margin: 0, paddingBottom: '8px' }}>Sort by:</p>
+              <p style={{ paddingTop: '32px', margin: 0, paddingBottom: '8px' }}>Sort by:</p>
               <div className="row tab-filter">
                 <div
                   className={`col-6 pr-0 item-filter ${btnRelevance ? "active-filter" : "non-active-filter "}`}
@@ -112,7 +112,7 @@ export default function Filter({ filterShort, setFilterShort }) {
               <div style={{ borderBottom: '1px solid #D0D0D3', paddingTop: '24px' }}></div>
               <div style={{ paddingTop: '24px' }}>
                 <p style={{ margin: 0, paddingBottom: '16px' }}>Price range:</p>
-                <div style={{ minWidth: '310px', paddingBottom: '16px' }}>
+                <div style={{ minWidth: '310px', paddingBottom: '16px', paddingLeft: '9px', paddingRight: '8px' }}>
                   <Range
                     min={0}
                     max={5000}

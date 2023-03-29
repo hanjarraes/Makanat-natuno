@@ -160,7 +160,7 @@ input::-webkit-inner-spin-button {
   }
   .tab-filter {
     border-radius: 4px;
-    margin: 2px;
+    margin: 1px;
     .item-filter {
       cursor: pointer;
       padding: 9px 0px;
@@ -675,11 +675,25 @@ footer {
     position: absolute;
     z-index: 20;
     background: #fff;
-    padding: 15px;
+    padding: 16px 24px 24px 24px;
     border: 1px solid;
     border-radius: 4px;
     border: 1px solid #d0d0d3;
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+    .filter-sort {
+      .rc-slider {
+      .rc-slider-track {
+        background-color: #2A4DFF !important;
+        border-color: #2A4DFF !important;
+        height: 6px !important;
+        top: 4px;
+      }
+      .rc-slider-handle {
+        background-color: #2A4DFF !important;
+        border-color: #2A4DFF !important;
+      }
+    }
+    }
   }
   .reset-all-filter {
     display: flex;

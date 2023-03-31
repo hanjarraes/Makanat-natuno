@@ -9,6 +9,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
   const [selectedEndTime, setSelectedEndTime] = useState("");
   const [hours, setHours] = useState([]);
   const [select, setSelect] = useState(false);
+  const [modifyDate, setModifyDate] = useState(new Date(new Date().getFullYear(), new Date().getMonth() - 1, 1))
 
   useEffect(() => {
     const now = new Date();
@@ -89,7 +90,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
           ))}
         </select>
       </div>
-      <div className="test" style={{ minWidth: '252px' }}>
+      <div className="test" style={{ minWidth: '255px' }}>
         <div className="p-0 footer-datepick"></div>
         <div class="row" style={{ paddingTop: "10px", paddingBottom: "10px" }}>
           <div
@@ -103,6 +104,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
             onClick={async () => {
               if (startDate) {
                 setStartDate("");
+                setModifyDate(undefined)
                 setSelectedStartTime("");
                 setSelectedEndTime("");
               }
@@ -115,7 +117,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
             <button
               type="submit"
               disabled={!startDate}
-              class={`btn btn-primary`}
+              class={` startDate btn btn-primary`}
               onClick={() => {
                 if (startDate) setSelect(false);
               }}
@@ -163,7 +165,8 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
         />
         : ''}
       <DatePicker
-        selected={startDate}
+        monthsShown={3}
+        selected={modifyDate}
         onChange={(date) => setStartDate(date)}
         showTimeInput
         open={select}

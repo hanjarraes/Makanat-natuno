@@ -60,7 +60,7 @@ export default function Filter({ filterShort, setFilterShort }) {
 
   return (
     <>
-      <div ref={ref} style={{ minWidth: `${filterShort ? "90px" : ""}`, paddingLeft: 2 }}>
+      <div ref={ref} style={{ minWidth: `${filterShort ? "90px" : ""}` }}>
         <div className={`btn-attendees ${filterShort ? ' active-attendees' : ''}`} onClick={handleClick}>
           <img src={filterShort ? FilterIcon2 : FilterIcon} alt="img-filter" /> <span>{filterShort}</span>
         </div>

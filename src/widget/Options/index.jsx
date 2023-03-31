@@ -31,9 +31,9 @@ const Options = ({
           <div className="options">
             {options.map((data, idx) => {
               return (
-                <div className="option" key={`${idx}-${data.label}`} >
-                  <input type="radio" value={data.label} checked={selectOption === data.label} onChange={() => { setSelectOption(data.label) }} />
-                  <label htmlFor={`option${idx}`}>{data.label}</label>
+                <div className="option" key={`${idx}-${data.label}`} onChange={() => { setSelectOption(data.label) }}>
+                  <input id={`option${idx}`} type="radio" value={data.label} checked={selectOption === data.label} />
+                  <label className='w-100' htmlFor={`option${idx}`} >{data.label}</label>
                 </div>
               )
             })}

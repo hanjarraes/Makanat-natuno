@@ -112,10 +112,10 @@ const Result = () => {
       {isLoaded ?
         <>
           <div className="row py-md-3 nav-result">
-            <div className={`col-6 d-md-none d-block ${isAtBottom === 0 ? 'py-3' : 'py-2'}`}>
+            <div className={`col-6 pr-1 d-md-none d-block ${isAtBottom === 0 ? 'py-3' : 'py-2'}`}>
               <ModalSelect optionData={optionProductions} selectedValue={production} />
             </div>
-            <div className={`col-6 d-md-none d-block ${isAtBottom === 0 ? 'py-3' : 'py-2'}`}>
+            <div className={`col-6 pl-1 d-md-none d-block ${isAtBottom === 0 ? 'py-3' : 'py-2'}`}>
               <ModalAddress />
             </div>
             <div className="col-md-10 d-none d-md-flex col-12">
@@ -136,11 +136,13 @@ const Result = () => {
                 selectedValue={addressVal}
                 setSelected={setAddressVal}
               />
-              <Datepick
-                placeholder={"When?"}
-                startDate={startDate}
-                setStartDate={setStartDate}
-              />
+              <div className="pr-2">
+                <Datepick
+                  placeholder={"When?"}
+                  startDate={startDate}
+                  setStartDate={setStartDate}
+                />
+              </div>
               <Options
                 selectOption={selectOption}
                 setSelectOption={setSelectOption}
@@ -188,7 +190,7 @@ const Result = () => {
             )
             :
             (
-              <div className="row bg-white" style={{ boxShadow: "rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset" }}>
+              <div className="row bg-white">
                 <div className={`${isSwitch ? 'col-md-6 ' : 'col-md-12 '} pr-0 d-flex card-item`}>
                   <div ref={divRef} className="content-card-item" style={{ height: height }} >
                     <div className="row w-100 pl-3 top-content-card">

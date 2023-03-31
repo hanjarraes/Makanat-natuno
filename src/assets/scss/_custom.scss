@@ -670,7 +670,7 @@ footer {
   padding-right: 3rem;
   padding-left: 3rem;
   background-color: #ffffff;
-  border-bottom: 0.5px solid #9ea0a8;
+  border-bottom: 0.5px solid #e6e9f5;
   .modal-filter {
     position: absolute;
     z-index: 20;
@@ -682,17 +682,17 @@ footer {
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
     .filter-sort {
       .rc-slider {
-      .rc-slider-track {
-        background-color: #2A4DFF !important;
-        border-color: #2A4DFF !important;
-        height: 6px !important;
-        top: 4px;
+        .rc-slider-track {
+          background-color: #2a4dff !important;
+          border-color: #2a4dff !important;
+          height: 6px !important;
+          top: 4px;
+        }
+        .rc-slider-handle {
+          background-color: #2a4dff !important;
+          border-color: #2a4dff !important;
+        }
       }
-      .rc-slider-handle {
-        background-color: #2A4DFF !important;
-        border-color: #2A4DFF !important;
-      }
-    }
     }
   }
   .reset-all-filter {
@@ -792,7 +792,6 @@ footer {
     border: 1px solid #d0d0d3;
     border-radius: 5px;
     padding: 12px 8px;
-    margin-right: 10px;
     width: max-content;
     cursor: pointer;
     span {
@@ -854,7 +853,6 @@ footer {
     line-height: 150%;
     letter-spacing: 0.01em;
     color: #3d4152;
-    font-weight: bolder;
   }
   .css-b62m3t-container {
     width: 100%;
@@ -887,7 +885,7 @@ footer {
     border-radius: 4px;
     position: absolute;
     top: 27px;
-    left: 18px;
+    left: 25px;
     z-index: 10;
   }
   .like-icon {
@@ -896,7 +894,7 @@ footer {
     z-index: 10;
     right: 0;
     top: 27px;
-    right: 18px;
+    right: 25px;
     border-radius: 90px;
     display: flex;
     padding: 0 6px;
@@ -961,9 +959,9 @@ footer {
               background: #000000;
               border-radius: 90px;
               height: 29px;
-              padding-right: 5px;
-              padding-left: 5px;
-              margin: 23px;
+              padding-right: 8px;
+              padding-left: 8px;
+              margin: 31px;
               transition: display 0.3s;
             }
           }
@@ -1654,7 +1652,7 @@ footer {
   .btn-filter-map {
     position: absolute;
     display: flex;
-    border-radius: 20px;
+    border-radius: 26px;
     justify-content: center;
     background: #000000;
     box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.1);
@@ -1664,7 +1662,7 @@ footer {
     left: 0;
     right: 0;
     margin: 0 auto;
-    max-width: 250px;
+    width: fit-content;
     .vertical-line {
       border: 1px solid #ffffff;
     }
@@ -1757,7 +1755,15 @@ footer {
           display: flex;
           .index-module_Button__hkx4Z {
             svg {
-              display: none;
+              display: flex;
+              width: 40px;
+              background: #000000;
+              border-radius: 90px;
+              height: 39px;
+              padding-right: 5px;
+              padding-left: 5px;
+              margin: 49px;
+              transition: display 0.3s;
             }
           }
         }
@@ -1771,6 +1777,8 @@ footer {
             .index-module_Button__hkx4Z {
               svg {
                 width: 40px;
+                background: #000000;
+                border-radius: 90px;
                 height: 39px;
                 padding-right: 5px;
                 padding-left: 5px;
@@ -2212,7 +2220,15 @@ footer {
           display: flex;
           .index-module_Button__hkx4Z {
             svg {
-              display: none;
+              display: flex;
+              background: #000000;
+              border-radius: 90px;
+              width: 40px;
+              height: 39px;
+              padding-right: 5px;
+              padding-left: 5px;
+              margin: 0 10px;
+              transition: display 0.3s;
             }
           }
         }
@@ -2226,6 +2242,8 @@ footer {
             .index-module_Button__hkx4Z {
               svg {
                 display: flex;
+                background: #000000;
+                border-radius: 90px;
                 width: 40px;
                 height: 39px;
                 padding-right: 5px;
@@ -2285,7 +2303,15 @@ footer {
           display: flex;
           .index-module_Button__hkx4Z {
             svg {
-              display: none;
+              background: #000000;
+              border-radius: 90px;
+              display: flex;
+              width: 40px;
+              height: 39px;
+              padding-right: 5px;
+              padding-left: 5px;
+              margin: 0 7px;
+              transition: display 0.3s;
             }
           }
         }
@@ -2298,6 +2324,8 @@ footer {
             display: flex;
             .index-module_Button__hkx4Z {
               svg {
+                background: #000000;
+                border-radius: 90px;
                 display: flex;
                 width: 40px;
                 height: 39px;
@@ -2347,7 +2375,15 @@ footer {
           display: flex;
           .index-module_Button__hkx4Z {
             svg {
-              display: none;
+              background: #000000;
+              border-radius: 90px;
+              display: flex;
+              width: 40px;
+              height: 39px;
+              padding-right: 5px;
+              padding-left: 5px;
+              margin: 0 0px;
+              transition: display 0.3s;
             }
           }
         }
@@ -2360,6 +2396,8 @@ footer {
             display: flex;
             .index-module_Button__hkx4Z {
               svg {
+                background: #000000;
+                border-radius: 90px;
                 display: flex;
                 width: 40px;
                 height: 39px;

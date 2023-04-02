@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useState } from "react";
-import DatePicker from "react-datepicker"
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import DatepickerIcon from "../../assets/img/Icon/datepicker.svg";
 import { format } from "date-fns";
@@ -10,6 +10,9 @@ export default function DatePickMobile({ placeholder }) {
   const [selectedEndTime, setSelectedEndTime] = useState("");
   const [hours, setHours] = useState([]);
   const [select, setSelect] = useState(false);
+  const [modifyDate, setModifyDate] = useState(
+    new Date(new Date().getFullYear(), new Date().getMonth() - 1, 1)
+  );
 
   let dayLength, monthLength;
   if (startDate) {
@@ -36,7 +39,6 @@ export default function DatePickMobile({ placeholder }) {
     setHours(hourOptions);
   }, [select]);
 
-
   const ExampleCustomTimeInput = () => (
     <>
       <div
@@ -52,7 +54,8 @@ export default function DatePickMobile({ placeholder }) {
           {startDate &&
             format(
               startDate,
-              `${dayLength <= 6 ? "EEEE" : "EE"}, dd ${monthLength <= 6 ? "MMMM" : "MMM"
+              `${dayLength <= 6 ? "EEEE" : "EE"}, dd ${
+                monthLength <= 6 ? "MMMM" : "MMM"
               } yyyy`
             )}
         </p>
@@ -92,6 +95,7 @@ export default function DatePickMobile({ placeholder }) {
             onClick={async () => {
               if (startDate) {
                 setStartDate("");
+                setModifyDate(new Date())
                 setSelectedStartTime("");
                 setSelectedEndTime("");
               }
@@ -106,7 +110,10 @@ export default function DatePickMobile({ placeholder }) {
               disabled={!startDate}
               class={`btn btn-primary`}
               onClick={() => {
-                if (startDate) setSelect(false);
+                if (startDate) {
+                  setModifyDate(startDate)
+                  setSelect(false)
+                };
               }}
             >
               Apply Date & Time
@@ -115,10 +122,13 @@ export default function DatePickMobile({ placeholder }) {
         </div>
       </div>
       <div className="header-close-date">
-        <span>
-          Select date & time
-        </span>
-        <i className="ri-close-line" onClick={() => { setSelect(false) }} />
+        <span>Select date & time</span>
+        <i
+          className="ri-close-line"
+          onClick={() => {
+            setSelect(false);
+          }}
+        />
       </div>
     </>
   );
@@ -149,13 +159,14 @@ export default function DatePickMobile({ placeholder }) {
   ));
   return (
     <DatePicker
-    selected={startDate}
-    onChange={(date) => setStartDate(date)}
-    showTimeInput
-    open={select}
-    minDate={new Date()}
-    customTimeInput={<ExampleCustomTimeInput />}
-    customInput={<ExampleCustomInput />}
-  />
+      selected={modifyDate}
+      monthsShown={3}
+      onChange={(date) => setStartDate(date)}
+      showTimeInput
+      open={select}
+      minDate={new Date()}
+      customTimeInput={<ExampleCustomTimeInput />}
+      customInput={<ExampleCustomInput />}
+    />
   );
 }

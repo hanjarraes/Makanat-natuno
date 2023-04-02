@@ -17,10 +17,10 @@
   background-color: #ffffff;
 }
 
-.react-datepicker-popper[data-placement^="bottom"] {
+.react-datepicker-popper {
   padding-top: 0 !important;
-  z-index: 20;
-  transform: translate3d(451px, 38px, 0px) !important;
+  z-index: 20 !important;  
+  inset: -12px auto auto 0px !important;
 }
 
 .react-datepicker__header {

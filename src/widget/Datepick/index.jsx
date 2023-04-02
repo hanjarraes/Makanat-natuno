@@ -104,7 +104,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
             onClick={async () => {
               if (startDate) {
                 setStartDate("");
-                setModifyDate(undefined)
+                setModifyDate(new Date())
                 setSelectedStartTime("");
                 setSelectedEndTime("");
               }
@@ -119,7 +119,10 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
               disabled={!startDate}
               class={` startDate btn btn-primary`}
               onClick={() => {
-                if (startDate) setSelect(false);
+                if (startDate) {
+                  setModifyDate(startDate)
+                  setSelect(false)
+                };
               }}
             >
               Apply
@@ -154,6 +157,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
       </div>
     </>
   ));
+  
   return (
     <>
       {select ?

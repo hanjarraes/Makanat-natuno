@@ -10,11 +10,11 @@ const Options = ({
   const [openModal, setOpenModal] = useState(false);
   return (
     <div className={parentDivClassName}>
-      <div onClick={() => setOpenModal(!openModal)} className={`btn-attendees px-3 ${selectOption ? ' active-attendees' : ''}`}>
+      <div onClick={() => setOpenModal(!openModal)} className={`btn-attendees px-3 ${selectOption ? ' active-attendees' : ''} attendees-position`}>
         {selectOption ? '' :
           <img src={Attendees} alt="img-attendees" />
         }
-        <span>
+        <span style={{margin:0, paddingLeft: '11px'}}>
           {selectOption ? selectOption + ' People' : 'Attendees'}
         </span>
       </div>

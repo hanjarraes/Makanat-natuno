@@ -736,6 +736,11 @@ footer {
     background-color: #2a4dff;
   }
 
+  .attendees-position {
+    padding-left: 17px !important;
+    padding-right: 19px !important;
+  }
+
   .option-attendees {
     top: 49px;
     position: absolute;
@@ -784,6 +789,11 @@ footer {
       font-weight: bolder;
       cursor: pointer;
     }
+  }
+
+  .btn-filter-position {
+    padding-left: 15px !important; 
+    padding-right: 11px !important; 
   }
 
   .btn-datepick {

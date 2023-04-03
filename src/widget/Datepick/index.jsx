@@ -140,6 +140,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
     <>
       <div
         className={`btn-datepick ${startDate ? "btn-primary" : ""}`}
+        style={{ paddingLeft: '18.7px', paddingRight: '19.2px'}}
         onClick={() => {
           onClick();
           setSelect(!select);
@@ -149,7 +150,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
         {!startDate ? (
           <>
             <img src={DatepickerIcon} alt="img-datepick" />
-            <span>{placeholder}</span>
+            <span style={{margin: 0, paddingLeft: '11px'}}>{placeholder}</span>
           </>
         ) : (
           <>

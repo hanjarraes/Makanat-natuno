@@ -63,3 +63,20 @@
   border: 1px solid #d0d0d3;
   width: auto !important;
 }
+
+.react-datepicker__day--keyboard-selected{
+  border: 1px solid #e5e5e5 !important;
+}
+
+.react-datepicker__day--keyboard-selected:hover {
+  background-color: #f5f5f8 !important;
+}
+
+.react-datepicker__day--keyboard-selected:focus-visible {
+  background-color: #f5f5f8 !important;
+  outline: none;
+}
+
+.react-datepicker__day--selected {
+  background-color: #2A4DFF !important;
+}

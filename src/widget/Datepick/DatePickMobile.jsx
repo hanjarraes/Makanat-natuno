@@ -11,7 +11,7 @@ export default function DatePickMobile({ placeholder }) {
   const [hours, setHours] = useState([]);
   const [select, setSelect] = useState(false);
   const [modifyDate, setModifyDate] = useState(
-    new Date(new Date().getFullYear(), new Date().getMonth() - 1, 1)
+    new Date(new Date().getFullYear(), new Date().getMonth(), 1)
   );
 
   let dayLength, monthLength;
@@ -19,6 +19,7 @@ export default function DatePickMobile({ placeholder }) {
     dayLength = format(startDate, "EEEE").length;
     monthLength = format(startDate, "MMMM").length;
   }
+
 
   useEffect(() => {
     const now = new Date();
@@ -54,8 +55,7 @@ export default function DatePickMobile({ placeholder }) {
           {startDate &&
             format(
               startDate,
-              `${dayLength <= 6 ? "EEEE" : "EE"}, dd ${
-                monthLength <= 6 ? "MMMM" : "MMM"
+              `${dayLength <= 6 ? "EEEE" : "EE"}, dd ${monthLength <= 6 ? "MMMM" : "MMM"
               } yyyy`
             )}
         </p>

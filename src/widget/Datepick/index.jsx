@@ -9,7 +9,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
   const [selectedEndTime, setSelectedEndTime] = useState("");
   const [hours, setHours] = useState([]);
   const [select, setSelect] = useState(false);
-  const [modifyDate, setModifyDate] = useState(new Date(new Date().getFullYear(), new Date().getMonth() - 1, 1))
+  const [modifyDate, setModifyDate] = useState(new Date(new Date().getFullYear(), new Date().getMonth(), 1))
 
   useEffect(() => {
     const now = new Date();
@@ -90,7 +90,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
           ))}
         </select>
       </div>
-      <div className="test" style={{ minWidth: '255px' }}>
+      <div style={{ minWidth: '255px' }}>
         <div className="p-0 footer-datepick"></div>
         <div class="row" style={{ paddingTop: "10px", paddingBottom: "10px" }}>
           <div
@@ -157,7 +157,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
       </div>
     </>
   ));
-  
+
   return (
     <>
       {select ?

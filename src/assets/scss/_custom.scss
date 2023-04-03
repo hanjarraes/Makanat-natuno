@@ -349,7 +349,23 @@ input::-webkit-inner-spin-button {
     }
   }
 }
+.modal-header-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  bottom: 46px;
+  padding: 0 25px;
 
+  span {
+    font-size: 16px;
+    letter-spacing: 0.04e;
+    color: white;
+    img {
+      width: 28px;
+    }
+  }
+}
 .motto-content {
   padding: 80px 0;
   text-align: center;
@@ -730,6 +746,9 @@ footer {
     span {
       margin-left: 5px;
     }
+    &:hover {
+      border: 1px solid #2a4dff;
+    }
   }
   .active-attendees {
     color: #fff;
@@ -792,8 +811,8 @@ footer {
   }
 
   .btn-filter-position {
-    padding-left: 15px !important; 
-    padding-right: 11px !important; 
+    padding-left: 15px !important;
+    padding-right: 11px !important;
   }
 
   .btn-datepick {
@@ -806,6 +825,9 @@ footer {
     cursor: pointer;
     span {
       margin-left: 5px;
+    }
+    &:hover {
+      border: 1px solid #2a4dff;
     }
   }
 }
@@ -879,6 +901,9 @@ footer {
     .css-1nmdiq5-menu {
       z-index: 20;
     }
+    &:hover {
+      border: 1px solid #2a4dff;
+    }
   }
 }
 
@@ -920,7 +945,7 @@ footer {
   }
 
   .title-content-card {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 8px;
     color: #0d1126;
   }
@@ -1754,7 +1779,7 @@ footer {
       }
     }
     .title-content-card {
-      font-size: 20px;
+      font-size: 16px;
     }
     .rate-content-card {
       span {
@@ -1762,7 +1787,7 @@ footer {
       }
     }
     .desc-content-card {
-      font-size: 16px;
+      font-size: 14px;
     }
     .hero-slider-root {
       .hero-slider-wrapper {
@@ -1862,6 +1887,7 @@ footer {
           padding: 15px 0;
           border-radius: 5px;
           border: 1px solid #ffffff;
+          text-decoration: none;
         }
 
         .small {
@@ -2219,7 +2245,7 @@ footer {
       }
     }
     .title-content-card {
-      font-size: 20px;
+      font-size: 16px;
     }
     .rate-content-card {
       span {
@@ -2227,7 +2253,7 @@ footer {
       }
     }
     .desc-content-card {
-      font-size: 16px;
+      font-size: 14px;
     }
     .hero-slider-root {
       .hero-slider-wrapper {

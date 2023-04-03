@@ -4,6 +4,7 @@ import { HambergerMenu } from "iconsax-react";
 import Modal from "react-modal";
 import Close from "../../assets/img/Icon/cross.svg";
 import LogoMakanat from "../../assets/img/Icon/makanat_logo.svg";
+import Vector from "../../assets/img/Icon/Vector.svg";
 import World from "../../assets/img/Icon/world.svg";
 
 const textData = {
@@ -147,6 +148,10 @@ const Header = () => {
                 <a href='/' className='small btn btn-list' onClick={() => setOpenModal(!openModal)}>
                   List your space
                 </a>
+              </div>
+              <div className="modal-header-footer">
+                <span> <img src={Vector} alt="vector" /> EN</span>
+                <span>SAR</span>
               </div>
             </div>
           </div>

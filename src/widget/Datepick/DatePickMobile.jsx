@@ -16,7 +16,7 @@ export default function DatePickMobile({ placeholder }) {
     dayLength = format(startDate, "EEEE").length;
     monthLength = format(startDate, "MMMM").length;
   }
-  const [changeMonth, setChangeMonth] = useState(new Date());
+  const changeMonth = new Date()
 
 
 
@@ -41,7 +41,7 @@ export default function DatePickMobile({ placeholder }) {
 
   const renderDayContents = (day, date) => {
     return date.getMonth() === changeMonth.getMonth() ? <div>{date.getDate()}</div> : null
-   };
+  };
 
   const ExampleCustomTimeInput = () => (
     <>
@@ -160,7 +160,7 @@ export default function DatePickMobile({ placeholder }) {
   ));
   return (
     <DatePicker
-        selected={startDate}
+      selected={startDate}
       onChange={(date) => setStartDate(date)}
       showTimeInput
       open={select}
@@ -168,7 +168,7 @@ export default function DatePickMobile({ placeholder }) {
       customTimeInput={<ExampleCustomTimeInput />}
       customInput={<ExampleCustomInput />}
       renderDayContents={renderDayContents}
-        fixedHeight
+      fixedHeight
     />
   );
 }

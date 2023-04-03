@@ -18,8 +18,6 @@ const CardContent = ({
         slidingAnimation="left_to_right"
         orientation="horizontal"
         initialSlide={1}
-        style={{
-        }}
         settings={{
           slidingDuration: 150,
           slidingDelay: 50,

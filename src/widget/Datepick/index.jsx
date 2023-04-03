@@ -9,7 +9,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
   const [selectedEndTime, setSelectedEndTime] = useState("");
   const [hours, setHours] = useState([]);
   const [select, setSelect] = useState(false);
-  const [modifyDate, setModifyDate] = useState(new Date(new Date().getFullYear(), new Date().getMonth(), 1))
+  const [changeMonth, setChangeMonth] = useState(new Date());
 
   useEffect(() => {
     const now = new Date();
@@ -42,6 +42,10 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
     dayLength = format(startDate, "EEEE").length;
     monthLength = format(startDate, "MMMM").length;
   }
+
+  const renderDayContents = (day, date) => {
+    return date.getMonth() === changeMonth.getMonth() ? <div>{date.getDate()}</div> : null
+   };
 
   const ExampleCustomTimeInput = () => (
     <>
@@ -103,8 +107,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
             }}
             onClick={async () => {
               if (startDate) {
-                setStartDate("");
-                setModifyDate(new Date())
+                await setStartDate("");
                 setSelectedStartTime("");
                 setSelectedEndTime("");
               }
@@ -120,7 +123,7 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
               class={` startDate btn btn-primary`}
               onClick={() => {
                 if (startDate) {
-                  setModifyDate(startDate)
+                  // setModifyDate(startDate)
                   setSelect(false)
                 };
               }}
@@ -169,14 +172,16 @@ export default function Datepick({ placeholder, startDate, setStartDate }) {
         />
         : ''}
       <DatePicker
-        monthsShown={3}
-        selected={modifyDate}
+        selected={startDate}
         onChange={(date) => setStartDate(date)}
         showTimeInput
         open={select}
         minDate={new Date()}
         customTimeInput={<ExampleCustomTimeInput />}
         customInput={<ExampleCustomInput />}
+        onMonthChange={(month) => setChangeMonth(month)}
+        renderDayContents={renderDayContents}
+        fixedHeight
       />
     </>
   );

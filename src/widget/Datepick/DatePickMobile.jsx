@@ -10,15 +10,14 @@ export default function DatePickMobile({ placeholder }) {
   const [selectedEndTime, setSelectedEndTime] = useState("");
   const [hours, setHours] = useState([]);
   const [select, setSelect] = useState(false);
-  const [modifyDate, setModifyDate] = useState(
-    new Date(new Date().getFullYear(), new Date().getMonth(), 1)
-  );
 
   let dayLength, monthLength;
   if (startDate) {
     dayLength = format(startDate, "EEEE").length;
     monthLength = format(startDate, "MMMM").length;
   }
+  const [changeMonth, setChangeMonth] = useState(new Date());
+
 
 
   useEffect(() => {
@@ -39,6 +38,10 @@ export default function DatePickMobile({ placeholder }) {
     }
     setHours(hourOptions);
   }, [select]);
+
+  const renderDayContents = (day, date) => {
+    return date.getMonth() === changeMonth.getMonth() ? <div>{date.getDate()}</div> : null
+   };
 
   const ExampleCustomTimeInput = () => (
     <>
@@ -94,8 +97,7 @@ export default function DatePickMobile({ placeholder }) {
             }}
             onClick={async () => {
               if (startDate) {
-                setStartDate("");
-                setModifyDate(new Date())
+                await setStartDate("");
                 setSelectedStartTime("");
                 setSelectedEndTime("");
               }
@@ -111,7 +113,6 @@ export default function DatePickMobile({ placeholder }) {
               class={`btn btn-primary`}
               onClick={() => {
                 if (startDate) {
-                  setModifyDate(startDate)
                   setSelect(false)
                 };
               }}
@@ -159,14 +160,15 @@ export default function DatePickMobile({ placeholder }) {
   ));
   return (
     <DatePicker
-      selected={modifyDate}
-      monthsShown={3}
+        selected={startDate}
       onChange={(date) => setStartDate(date)}
       showTimeInput
       open={select}
       minDate={new Date()}
       customTimeInput={<ExampleCustomTimeInput />}
       customInput={<ExampleCustomInput />}
+      renderDayContents={renderDayContents}
+        fixedHeight
     />
   );
 }
